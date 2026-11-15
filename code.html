@@ -1,0 +1,2236 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>html { scroll-behavior: smooth; }
+@keyframes arrowGlideClick {
+  0% { transform: translateX(0); }
+  35% { transform: translateX(8px); }
+  70% { transform: translateX(2px); }
+  100% { transform: translateX(0); }
+}
+.arrow-click-motion {
+  animation: arrowGlideClick 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+.get-started-arrow {
+  will-change: transform;
+}
+/* Enrolled course button styles */
+.course-enrolled-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 20px;
+  border-radius: 12px;
+  background: #dcfce7;
+  color: #15803d;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border: 2px solid #bbf7d0;
+  cursor: default;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.course-enrolled-badge .enrolled-icon {
+  font-size: 18px;
+  color: #16a34a;
+}
+ @layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<!-- Firebase Authentication SDK (v10 compat) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary-fixed": "#eaddff", "surface-container-high": "#e2e7ff", "on-secondary": "#ffffff", "on-secondary-fixed-variant": "#004d66", "on-surface-variant": "#434654", "on-tertiary-container": "#e6d7ff", "surface-container-low": "#f2f3ff", "secondary-container": "#00c4fe", "primary": "#003fb1", "on-secondary-container": "#004d66", "on-error": "#ffffff", "on-surface": "#131b2e", "surface-container-highest": "#dae2fd", "surface-variant": "#dae2fd", "surface-container-lowest": "#ffffff", "error-container": "#ffdad6", "outline": "#737686", "secondary-fixed": "#c0e8ff", "inverse-surface": "#283044", "on-secondary-fixed": "#001f2b", "on-tertiary": "#ffffff", "inverse-primary": "#b5c4ff", "primary-container": "#1a56db", "on-primary-fixed-variant": "#003dab", "background": "#faf8ff", "error": "#ba1a1a", "tertiary-container": "#7537e2", "primary-fixed-dim": "#b5c4ff", "surface-dim": "#d2d9f4", "on-background": "#131b2e", "surface-tint": "#1353d8", "outline-variant": "#c3c5d7", "on-tertiary-fixed-variant": "#5900c7", "surface": "#faf8ff", "surface-container": "#eaedff", "surface-bright": "#faf8ff", "tertiary-fixed-dim": "#d2bcff", "on-primary-container": "#d4dcff", "on-tertiary-fixed": "#25005a", "tertiary": "#5c0bc9", "on-primary": "#ffffff", "on-primary-fixed": "#00174d", "secondary": "#006686", "inverse-on-surface": "#eef0ff", "on-error-container": "#93000a", "secondary-fixed-dim": "#6fd2ff", "primary-fixed": "#dbe1ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-desktop": "3rem", "margin-mobile": "1rem", "space-xl": "2.5rem", "space-2xl": "4rem", "gutter": "1.5rem", "space-md": "1rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "gutter-lg": "2rem", "space-lg": "1.5rem", "margin": "2rem", "gutter-sm": "1rem" }, "fontFamily": { "code-sm": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "display-hero-mobile": ["Plus Jakarta Sans"], "display-hero": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"] }, "fontSize": { "code-sm": ["0.8125rem", { "lineHeight": "1.25rem", "fontWeight": "500" }], "headline-lg": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.025em", "fontWeight": "700" }], "label-lg": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0.01em", "fontWeight": "600" }], "label-sm": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.04em", "fontWeight": "600" }], "body-md": ["0.9375rem", { "lineHeight": "1.5rem", "fontWeight": "400" }], "headline-sm": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "title-md": ["1.125rem", { "lineHeight": "1.5rem", "fontWeight": "600" }], "headline-lg-mobile": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.02em", "fontWeight": "700" }], "display-hero-mobile": ["2.25rem", { "lineHeight": "2.75rem", "letterSpacing": "-0.02em", "fontWeight": "800" }], "display-hero": ["3.5rem", { "lineHeight": "4.25rem", "letterSpacing": "-0.03em", "fontWeight": "800" }], "body-lg": ["1.125rem", { "lineHeight": "1.75rem", "fontWeight": "400" }], "headline-md": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-sm": ["0.8125rem", { "lineHeight": "1.25rem", "fontWeight": "400" }] } } } }</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-7xl mx-auto px-margin-mobile md:px-margin lg:px-margin-desktop flex items-center justify-between gap-space-md"><a class="flex items-center gap-space-sm shrink-0" href="#home"><img alt="Codelytic official logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxEbMSemiVlbmavzhlItJe5WnlbZL6fPwWcdo9rkXQ4GboCFpTA8vy3CSA8V1aSEYt8irAZkNA_upZ8XLdBqK_AjzLkvYNjq2WM7jiySLA6aPVE0ST7vbnkFUA3Gq7YLOdhYjbggDpJ5dC52sBYZtS2fZofBcyqTW50uq93m2XGViHWuAUQjiIxWXpLWNDIRQ9KYz8wiTssREMhYwue2rSJH_2zipd1vQ62ypupprSMK6KBIMz1vSHig"/><span class="font-title-md text-title-md text-on-surface tracking-tight font-bold hidden sm:inline-block">Codelytic</span></a><nav class="hidden xl:flex items-center gap-space-lg" id="desktop-nav"><a aria-current="page" class="nav-link font-label-lg text-label-lg py-space-xs text-primary font-bold transition-none" data-target="home" href="#home">Home</a><a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-none py-space-xs font-medium" data-target="about" href="#about">About Us</a><a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-none py-space-xs font-medium" data-target="vision-mission" href="#vision-mission">Vision &amp; Mission</a><a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-none py-space-xs font-medium" data-target="courses" href="#courses">Courses</a><a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-none py-space-xs font-medium" data-target="what-makes-us-different" href="#what-makes-us-different">What Makes Us Different</a><a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-none py-space-xs font-medium" data-target="leadership-team" href="#leadership-team">Our Leadership &amp; Team</a><a class="nav-link font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-none py-space-xs font-medium" data-target="contact" href="#contact">Contact Us</a></nav><div class="flex items-center gap-space-md shrink-0"><div class="hidden 2xl:flex flex-col text-right"><span class="font-code-sm text-code-sm text-on-surface font-semibold">+1 (800) 555-CODE</span><a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="mailto:official.codelytic@gmail.com">official.codelytic@gmail.com</a></div><button id="get-started-btn" type="button" aria-label="Get Started" class="group inline-flex items-center justify-center gap-2 font-label-lg text-label-lg px-space-lg h-11 rounded-lg bg-primary text-on-primary hover:bg-primary-container transition-all duration-300 shadow-[0_4px_12px_rgba(26,86,219,0.2)] active:scale-[0.98] font-semibold cursor-pointer select-none">
+  <span>Get Started</span>
+  <span class="material-symbols-outlined text-[18px] transition-transform duration-300 ease-out group-hover:translate-x-1.5 group-active:translate-x-2.5 get-started-arrow inline-block">arrow_forward</span>
+</button><button aria-label="Toggle mobile menu" class="xl:hidden w-10 h-10 rounded-lg flex items-center justify-center text-on-surface hover:bg-surface-container transition-colors" id="mobile-menu-btn" type="button"><span class="material-symbols-outlined text-[26px]">menu</span></button><button id="profile-btn" type="button" aria-label="User Profile" class="flex w-9 h-9 rounded-full bg-primary hover:bg-primary-container items-center justify-center shrink-0 transition-all duration-200 cursor-pointer shadow-sm hover:shadow active:scale-95 group focus:outline-none focus:ring-2 focus:ring-primary/40 relative overflow-visible">
+  <span id="profile-btn-icon" class="material-symbols-outlined text-on-primary text-[18px] transition-transform duration-200 group-hover:scale-110">person</span>
+  <span id="profile-btn-initials" class="hidden w-full h-full rounded-full bg-primary text-on-primary font-bold text-xs flex items-center justify-center uppercase select-none"></span>
+  <img id="profile-btn-img" class="hidden absolute inset-0 w-full h-full rounded-full object-cover" alt="Profile" />
+  <span id="profile-btn-status-dot" class="hidden absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full border-2 border-surface bg-emerald-500 z-10"></span>
+</button></div></div><!-- Mobile Navigation Drawer --><div class="hidden xl:hidden bg-surface/98 backdrop-blur-2xl border-t border-surface-container px-margin-mobile py-4 flex-col gap-1 shadow-xl" id="mobile-menu"><a class="mobile-nav-link block py-2.5 px-3 rounded-lg text-base font-bold text-primary bg-primary/10 transition-none" data-target="home" href="#home">Home</a><a class="mobile-nav-link block py-2.5 px-3 rounded-lg text-base font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container transition-none" data-target="about" href="#about">About Us</a><a class="mobile-nav-link block py-2.5 px-3 rounded-lg text-base font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container transition-none" data-target="vision-mission" href="#vision-mission">Vision &amp; Mission</a><a class="mobile-nav-link block py-2.5 px-3 rounded-lg text-base font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container transition-none" data-target="courses" href="#courses">Courses</a><a class="mobile-nav-link block py-2.5 px-3 rounded-lg text-base font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container transition-none" data-target="what-makes-us-different" href="#what-makes-us-different">What Makes Us Different</a><a class="mobile-nav-link block py-2.5 px-3 rounded-lg text-base font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container transition-none" data-target="leadership-team" href="#leadership-team">Our Leadership &amp; Team</a><a class="mobile-nav-link block py-2.5 px-3 rounded-lg text-base font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container transition-none" data-target="contact" href="#contact">Contact Us</a>
+<div class="pt-2 mt-1 border-t border-surface-container">
+  <button id="mobile-profile-btn" type="button" class="w-full py-2.5 px-3 rounded-lg text-base font-semibold text-primary bg-primary/10 flex items-center justify-between transition-colors">
+    <span class="flex items-center gap-2">
+      <span class="material-symbols-outlined text-[20px]" id="mobile-profile-icon">person</span>
+      <span id="mobile-profile-label">Sign In / Profile</span>
+    </span>
+    <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+  </button>
+</div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
+<!-- HERO SECTION -->
+<section class="relative w-full overflow-hidden bg-gradient-to-b from-surface via-surface-container-low to-surface py-space-xl lg:py-space-2xl scroll-mt-24" id="home">
+<div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-secondary-fixed/30 blur-3xl pointer-events-none"></div>
+<div class="absolute top-1/3 -right-24 w-80 h-80 rounded-full bg-primary-fixed/40 blur-3xl pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin lg:px-margin-desktop relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
+<!-- Left Content -->
+<div class="lg:col-span-7 flex flex-col items-start">
+<div class="inline-flex items-center gap-space-xs px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed mb-space-md shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-sm text-label-sm font-semibold tracking-wide">Enterprise EdTech &amp; Engineering Hub</span>
+</div>
+<h1 class="font-display-hero text-display-hero-mobile lg:text-display-hero text-on-surface tracking-tight font-extrabold max-w-2xl">
+            Empowering Future Innovators Through <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary-container">Tech Education</span> &amp; Software Excellence
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-space-md max-w-xl leading-relaxed">
+            Codelytic Software Solutions bridges academic learning and real-world tech industry demands with career-defining programs, mentorship, and enterprise-grade software development.
+          </p>
+<div class="flex flex-wrap items-center gap-space-sm mt-space-lg w-full sm:w-auto">
+<a class="inline-flex items-center justify-center font-label-lg text-label-lg px-6 h-12 rounded-lg bg-gradient-to-r from-primary to-primary-container text-on-primary font-semibold shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5" href="#courses">
+              Explore Courses &amp; Programs
+              <span class="material-symbols-outlined text-[18px] ml-2">arrow_forward</span>
+</a>
+<a class="inline-flex items-center justify-center font-label-lg text-label-lg px-6 h-12 rounded-lg bg-surface-container text-on-surface font-semibold hover:bg-surface-container-high transition-all duration-300" href="#leadership-team">
+              Meet Our Team
+            </a>
+</div>
+</div>
+<!-- Right Hero Visual -->
+<div class="lg:col-span-5 relative flex justify-center items-center mt-space-xl lg:mt-0">
+<div class="relative w-full max-w-md aspect-square bg-gradient-to-tr from-surface-container-high via-surface-container-lowest to-surface-container rounded-3xl p-space-lg flex flex-col items-center justify-center shadow-xl">
+<!-- Floating Badges -->
+<div class="absolute -top-4 -left-4 bg-surface-container-lowest px-4 py-2 rounded-xl shadow-lg flex items-center gap-2 animate-bounce" style="animation-duration: 4s;">
+<span class="material-symbols-outlined text-primary text-[20px]">terminal</span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">Full Stack</span>
+</div>
+<div class="absolute top-10 -right-5 bg-surface-container-lowest px-4 py-2 rounded-xl shadow-lg flex items-center gap-2 animate-bounce" style="animation-duration: 5s;">
+<span class="material-symbols-outlined text-tertiary text-[20px]">psychology</span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">AI / ML Labs</span>
+</div>
+<div class="absolute -bottom-3 -left-2 bg-surface-container-lowest px-4 py-2 rounded-xl shadow-lg flex items-center gap-2 animate-bounce" style="animation-duration: 4.5s;">
+<span class="material-symbols-outlined text-secondary text-[20px]">cloud_done</span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">Cloud DevOps</span>
+</div>
+<div class="absolute bottom-12 -right-4 bg-surface-container-lowest px-4 py-2 rounded-xl shadow-lg flex items-center gap-2 animate-bounce" style="animation-duration: 6s;">
+<span class="material-symbols-outlined text-primary text-[20px]">insights</span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">Data Analytics</span>
+</div>
+<!-- Prominent Logo Card Frame -->
+<div class="w-full h-full bg-surface-container-lowest rounded-2xl p-space-lg flex flex-col items-center justify-center text-center shadow-inner relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-secondary-container/10 opacity-70"></div>
+<img alt="Official corporate logo emblem of Codelytic" class="w-64 h-auto object-contain relative z-10 transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxEbMSemiVlbmavzhlItJe5WnlbZL6fPwWcdo9rkXQ4GboCFpTA8vy3CSA8V1aSEYt8irAZkNA_upZ8XLdBqK_AjzLkvYNjq2WM7jiySLA6aPVE0ST7vbnkFUA3Gq7YLOdhYjbggDpJ5dC52sBYZtS2fZofBcyqTW50uq93m2XGViHWuAUQjiIxWXpLWNDIRQ9KYz8wiTssREMhYwue2rSJH_2zipd1vQ62ypupprSMK6KBIMz1vSHig"/>
+<div class="mt-4 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-code-sm text-code-sm relative z-10">
+                Enterprise Tech Curriculum
+              </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ABOUT US SECTION -->
+<section class="w-full py-space-2xl bg-surface-container-low scroll-mt-24" id="about">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin lg:px-margin-desktop">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-xl">
+<div class="max-w-2xl">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">About Codelytic</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold mt-space-xs">
+            Where Technical Prowess Meets Real-World Industry Execution
+          </h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          Established as an advanced technology accelerator, Codelytic Software Solutions bridges academic gaps with industry-benchmarked software training, incubation bootcamps, and production-grade engineering services.
+        </p>
+</div>
+<!-- 3 Core Interactive Pillars -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface-container-lowest p-space-xl rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+<div>
+<div class="w-14 h-14 rounded-xl bg-primary-fixed flex items-center justify-center text-primary mb-space-md group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[30px]">code</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Practical Curriculum</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-sm leading-relaxed">
+              Curated directly alongside senior engineering managers to reflect cutting-edge production frameworks, modern CI/CD practices, and scalable architectures.
+            </p>
+</div>
+<div class="mt-space-lg pt-space-md flex items-center text-primary font-label-lg text-label-lg font-semibold">
+<span>Modular Mastery</span>
+<span class="material-symbols-outlined text-[18px] ml-1">check_circle</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-xl rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+<div>
+<div class="w-14 h-14 rounded-xl bg-secondary-fixed flex items-center justify-center text-secondary mb-space-md group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[30px]">layers</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Real-World Projects</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-sm leading-relaxed">
+              Students build actual cloud-deployed microservices, SaaS utilities, and commercial-grade tools with rigorous code reviews, sprint routines, and agile ceremonies.
+            </p>
+</div>
+<div class="mt-space-lg pt-space-md flex items-center text-secondary font-label-lg text-label-lg font-semibold">
+<span>Production Environments</span>
+<span class="material-symbols-outlined text-[18px] ml-1">rocket_launch</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-xl rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+<div>
+<div class="w-14 h-14 rounded-xl bg-tertiary-fixed flex items-center justify-center text-tertiary mb-space-md group-hover:bg-tertiary group-hover:text-on-tertiary transition-colors">
+<span class="material-symbols-outlined text-[30px]">trending_up</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Career Transformation</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-sm leading-relaxed">
+              From mock system architecture interviews to career profile calibration, our graduates successfully transition into high-growth software and tech consultant positions.
+            </p>
+</div>
+<div class="mt-space-lg pt-space-md flex items-center text-tertiary font-label-lg text-label-lg font-semibold">
+<span>98% Placement Trajectory</span>
+<span class="material-symbols-outlined text-[18px] ml-1">verified</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- VISION & MISSION SECTION -->
+<section class="w-full py-space-2xl bg-surface scroll-mt-24" id="vision-mission">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin lg:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter-lg items-stretch">
+<!-- Vision Tile -->
+<div class="bg-gradient-to-br from-primary-container to-primary text-on-primary p-space-xl lg:p-space-2xl rounded-3xl shadow-xl flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-16 -top-16 w-56 h-56 rounded-full bg-white/10 blur-2xl pointer-events-none"></div>
+<div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-on-primary font-label-sm text-label-sm font-semibold uppercase tracking-wider mb-space-md">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+              Our Vision
+            </div>
+<h3 class="font-headline-lg text-headline-lg font-bold mt-space-xs leading-snug">
+              "To become a globally recognized center of excellence in software innovation and education, empowering ambitious minds to lead technological transformation."
+            </h3>
+</div>
+<div class="pt-space-xl flex items-center gap-space-sm text-on-primary-container">
+<span class="material-symbols-outlined text-[24px]">public</span>
+<span class="font-body-md text-body-md font-medium">Cultivating world-class engineers across borders</span>
+</div>
+</div>
+<!-- Mission Tile -->
+<div class="bg-surface-container p-space-xl lg:p-space-2xl rounded-3xl shadow-md flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -left-16 -bottom-16 w-56 h-56 rounded-full bg-secondary-fixed/50 blur-2xl pointer-events-none"></div>
+<div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold uppercase tracking-wider mb-space-md">
+<span class="material-symbols-outlined text-[16px]">flag</span>
+              Our Mission
+            </div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface font-bold mt-space-xs leading-snug">
+              "To deliver immersive, practical, and accessible tech training coupled with robust software development services that drive real career and business outcomes."
+            </h3>
+</div>
+<div class="pt-space-xl flex items-center gap-space-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[24px] text-secondary">workspace_premium</span>
+<span class="font-body-md text-body-md font-medium">Applied coding, enterprise ethics, and job readiness</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FEATURED COURSES & PROGRAMS SECTION -->
+<section class="w-full py-space-2xl bg-surface-container-low scroll-mt-24" id="courses">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin lg:px-margin-desktop">
+<div class="text-center max-w-3xl mx-auto mb-space-2xl">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">Industry Curriculum</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold mt-space-xs">
+          Featured Engineering &amp; Software Programs
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-sm">
+          Hands-on cohorts structured around sprint deliveries, comprehensive portfolio production, and certified career pathways.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Course 1 -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+<div>
+<div class="h-3 bg-gradient-to-r from-primary to-primary-container"></div>
+<div class="p-space-lg">
+<div class="flex items-center justify-between gap-2 mb-space-sm">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold">4 Weeks</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm font-bold">Certified</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold group-hover:text-primary transition-colors">
+                Full Stack Development</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-sm leading-relaxed">Learn to design and develop complete websites and web applications using modern technologies. Gain practical skills in frontend, backend, and database development through real-world projects.</p>
+<div class="flex flex-wrap gap-1.5 mt-space-md">
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-code-sm text-code-sm">JDK</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-code-sm text-code-sm">VS Code</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-code-sm text-code-sm">Eclipse</span>
+</div>
+</div>
+</div>
+<div class="p-space-lg pt-0">
+<button class="w-full h-10 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-on-surface font-label-lg text-label-lg font-semibold transition-all cursor-pointer" id="enroll-btn-fullstack" onclick="openEnrollmentModal('Full Stack Development')">
+              Enroll Now
+            </button>
+</div>
+</div>
+<!-- Course 2 -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+<div>
+<div class="h-3 bg-gradient-to-r from-tertiary to-secondary-container"></div>
+<div class="p-space-lg">
+<div class="flex items-center justify-between gap-2 mb-space-sm">
+<span class="px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold">4 Weeks</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm font-bold">Certified</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold group-hover:text-tertiary transition-colors">
+                Artificial Intelligence &amp; Data Science
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-sm leading-relaxed">Learn to use Artificial Intelligence, Machine Learning, and Data Analytics to solve real-world problems. Gain practical experience in Python, data visualization, and AI-based projects.</p>
+<div class="flex flex-wrap gap-1.5 mt-space-md">
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-code-sm text-code-sm">SQL</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-code-sm text-code-sm">PowerBI</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-code-sm text-code-sm">NLP</span>
+</div>
+</div>
+</div>
+<div class="p-space-lg pt-0">
+<button class="w-full h-10 rounded-lg bg-surface-container hover:bg-tertiary hover:text-on-tertiary text-on-surface font-label-lg text-label-lg font-semibold transition-all cursor-pointer" id="enroll-btn-ai" onclick="openEnrollmentModal('Artificial Intelligence & Data Science')">
+              Enroll Now
+            </button>
+</div>
+</div>
+<!-- Course 3 -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+<div>
+<div class="h-3 bg-gradient-to-r from-secondary to-primary-fixed-dim"></div>
+<div class="p-space-lg">
+<div class="flex items-center justify-between gap-2 mb-space-sm">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">4 Weeks</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm font-bold">Certified</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold group-hover:text-secondary transition-colors">Prompt Engineering &amp; Digital Marketing</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-sm leading-relaxed">Learn to create effective AI prompts and use AI tools to improve productivity and creativity. Develop digital marketing skills in SEO, social media marketing, content creation, and online branding..
+              </p>
+<div class="flex flex-wrap gap-1.5 mt-space-md">
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-code-sm text-code-sm">AI Tools</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-code-sm text-code-sm">Design</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-code-sm text-code-sm">SEO</span>
+</div>
+</div>
+</div>
+<div class="p-space-lg pt-0">
+<button class="w-full h-10 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-lg text-label-lg font-semibold transition-all cursor-pointer" id="enroll-btn-prompt" onclick="openEnrollmentModal('Prompt Engineering & Digital Marketing')">
+              Enroll Now
+            </button>
+</div>
+</div>
+<!-- Course 4 -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+<div>
+<div class="h-3 bg-gradient-to-r from-primary-container to-secondary-fixed-dim"></div>
+<div class="p-space-lg">
+<div class="flex items-center justify-between gap-2 mb-space-sm">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold">4 Weeks</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm font-bold">Certified</span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-bold group-hover:text-primary transition-colors">
+                UI/UX Design &amp; Frontend System</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-sm leading-relaxed">
+                Design intuitive product interfaces in Figma, translate components to accessible web frameworks, and execute high-fidelity prototypes.
+              </p>
+<div class="flex flex-wrap gap-1.5 mt-space-md">
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-code-sm text-code-sm">Figma</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-code-sm text-code-sm">MongoDB</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-low text-on-surface-variant font-code-sm text-code-sm">React</span>
+</div>
+</div>
+</div>
+<div class="p-space-lg pt-0">
+<button class="w-full h-10 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary text-on-surface font-label-lg text-label-lg font-semibold transition-all cursor-pointer" id="enroll-btn-uiux" onclick="openEnrollmentModal('UI/UX Design & Frontend System')">
+              Enroll Now
+            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- WHAT MAKES US DIFFERENT SECTION -->
+<section class="w-full py-space-2xl bg-surface scroll-mt-24" id="what-makes-us-different">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin lg:px-margin-desktop">
+<div class="max-w-3xl mb-space-xl">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">WHAT MAKES US DIFFERENT</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold mt-space-xs">
+          More Than Learning. We Build Future-Ready Professionals.
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-sm">
+          At Codelytic Software Solutions, we go beyond traditional learning by combining technology, practical experience, and industry-focused skill development to prepare individuals for real-world challenges.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest border border-surface-container shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[24px]">terminal</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface font-bold">Practical Learning</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Learn through hands-on training, practical exercises, and real-world applications.
+            </p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest border border-surface-container shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[24px]">memory</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface font-bold">Industry-Relevant Technologies</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Gain knowledge of modern technologies and tools used in today's IT industry.
+            </p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest border border-surface-container shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed flex items-center justify-center shrink-0 text-tertiary">
+<span class="material-symbols-outlined text-[24px]">rocket_launch</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface font-bold">Real-Time Projects</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Build practical projects to improve your technical knowledge and problem-solving skills.
+            </p>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest border border-surface-container shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[24px]">groups</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface font-bold">Personalized Mentorship</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Get proper guidance, individual attention, and continuous learning support.
+            </p>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest border border-surface-container shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface font-bold">Skill-Based Training</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Focus on developing technical skills that help you grow professionally.
+            </p>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="p-space-lg rounded-2xl bg-surface-container-lowest border border-surface-container shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed flex items-center justify-center shrink-0 text-tertiary">
+<span class="material-symbols-outlined text-[24px]">trending_up</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface font-bold">Career Development</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Improve your technical knowledge, communication, and career readiness.
+            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- LEADERSHIP & CORE TEAM SECTION -->
+<section class="w-full py-space-2xl bg-surface-container-low scroll-mt-24" id="leadership-team">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin lg:px-margin-desktop">
+<div class="text-center max-w-3xl mx-auto mb-space-2xl">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">Executive Board</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold mt-space-xs">
+          Leadership &amp; Executive Team
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-sm">
+          Meet the visionaries, educators, and leaders driving innovation and excellence at Codelytic Software Solutions.
+        </p>
+</div>
+<!-- 5 Team Cards in 3 Top + 2 Centered Bottom Grid -->
+<div class="flex flex-col gap-gutter-lg">
+<!-- Row 1: 3 cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Member 1: M. Priyadharshini -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center justify-between group">
+<div class="flex flex-col items-center w-full">
+<div class="w-44 h-44 rounded-2xl overflow-hidden shadow-inner bg-surface-container mx-auto">
+<img alt="M. Priyadharshini" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHml5cC42zmpExlBrnS6MYVzDzluiqePbwwso0kcQqoVY4Z1wN4M3NAcqwbiqdkD7JOg5STnfVUsj1gsPbEp7AvCiwd-1PB1qekiLZXFkFzP337Qqy49I1XV9uPFdtLXb2VKNBARPNrRvZIRVW9UJbYEJSL-xlI-dgbPixMnqhaWSELK7piPwNsUewyn7pFiHvVbDVNVth7o9DKgg-4-1rJQDWwE7NvamVlA36AENy0pxkQ6aByeuZvQ"/>
+</div>
+<h3 class="text-lg font-bold text-slate-900 tracking-tight text-center mt-4">M. Priyadharshini</h3>
+<p class="text-xs font-semibold text-blue-600 uppercase tracking-wider text-center mt-1">Founder &amp; CEO</p>
+<p class="text-xs leading-relaxed text-slate-600 text-center mt-3 px-2">
+                Leads the company's vision, strategic planning, business operations, innovation, and organizational development.
+              </p>
+</div>
+</div>
+<!-- Member 2: M. Manisankar -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center justify-between group">
+<div class="flex flex-col items-center w-full">
+<div class="w-44 h-44 rounded-2xl overflow-hidden shadow-inner bg-surface-container mx-auto">
+<img alt="M. Manisankar" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASDGyNQnehEMqac_0OT7TmRlzMyZAh0eN3YoPCiCsxmfLihMbysNxGJGeCthV0g0hVer7kc02r4g3kGtu8X3DavEjaWaHYRoFdrKJMKGvHTP_ZoNnnCZoOkZ_SejUlkN7HlMaU4O0ifuAbxM-VwCmcEH0LcX3C19DAklsjr0qGlryCl7OWohihUKHlGP7mFKI7XzD1N0mpiO4MyqsFLxPjTwIypHI5Ic1Duxf23Dry_goYfQg-utfBhg"/>
+</div>
+<h3 class="text-lg font-bold text-slate-900 tracking-tight text-center mt-4">M. Manisankar</h3>
+<p class="text-xs font-semibold text-blue-600 uppercase tracking-wider text-center mt-1">HR Executive &amp; Manager</p>
+<p class="text-xs leading-relaxed text-slate-600 text-center mt-3 px-2">
+                Manages recruitment, human resources, employee coordination, team engagement, and organizational communication.
+              </p>
+</div>
+</div>
+<!-- Member 3: Sujith S -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center justify-between group">
+<div class="flex flex-col items-center w-full">
+<div class="w-44 h-44 rounded-2xl overflow-hidden shadow-inner bg-surface-container mx-auto">
+<img alt="Sujith S" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8LSlAFaavcpcFmAUU1cUsn6tJbaTJC14qfkamx_0GfD3K_hbno0pBxq6g4zXKLLtqVqecyvaW7Hv7ouiZULXPB-MHHajpf_nYMiFNXLJ9qEStE2ibkHN68eu-tFXfceCynwPbSeCIWSR9Spo5A-ekQW53FVQ9C-570en5i3bU4HUjFpDT_G-4SwQonYAXXWhyuKjgPJftzCp-exL3tI8OKmgsDmzZbVImSSGEUTT_ypS-b2aQpRlK9A"/>
+</div>
+<h3 class="text-lg font-bold text-slate-900 tracking-tight text-center mt-4">Sujith S</h3>
+<p class="text-xs font-semibold text-blue-600 uppercase tracking-wider text-center mt-1">Business Development Manager</p>
+<p class="text-xs leading-relaxed text-slate-600 text-center mt-3 px-2">
+                Focuses on business expansion, client relationships, strategic partnerships, and identifying new business opportunities.
+              </p>
+</div>
+</div>
+</div>
+<!-- Row 2: 2 cards centered -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter max-w-4xl mx-auto w-full">
+<!-- Member 4: Santhiya V -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center justify-between group">
+<div class="flex flex-col items-center w-full">
+<div class="w-44 h-44 rounded-2xl overflow-hidden shadow-inner bg-surface-container mx-auto">
+<img alt="Santhiya V" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ_nwP0UHOq3xnz5pZP4dEwmHhoGUqT-OrXLBQ9W5mTSP3gcQBH9P3lEAukUodErHXnaJqVCcfI7oXns5J-qH4d1QMh2HrHnfXYz_2BYWNg0TnrEOGuffGlvyPiYHQMVH-pq8_7D7IxNEPnKM9jbS3Kq_5pUSZm6qxdPCmuIhesIOwCe0Ri0kF2nnsrRcQXqljdTjTG2e9vkO6snN-kRMgUEtNr2mz1iWPzVr5-lFaW9w6bQbLMTDSdQ"/>
+</div>
+<h3 class="text-lg font-bold text-slate-900 tracking-tight text-center mt-4">Santhiya V</h3>
+<p class="text-xs font-semibold text-blue-600 uppercase tracking-wider text-center mt-1">Team Management Leader</p>
+<p class="text-xs leading-relaxed text-slate-600 text-center mt-3 px-2">
+                Coordinates team activities, monitors workflow, supports collaboration, and ensures effective team communication.
+              </p>
+</div>
+</div>
+<!-- Member 5: Nishaprakash -->
+<div class="bg-surface-container-lowest rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center justify-between group">
+<div class="flex flex-col items-center w-full">
+<div class="w-44 h-44 rounded-2xl overflow-hidden shadow-inner bg-surface-container mx-auto">
+<img alt="Nishaprakash" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoZj5RBP88r394SyDrZgax3YrPEIEZ1F-0prkJX9Abk1ZMd7uE-YD1ybFa8uKy4XWzVfGSuPbJC3n2d3SqBjysr5vdWE9WW6wHrWScK2oaBRo8GOv6x5SQ_57leki_7okzgF3dxo0lFxpcg-tdToi2umlVDVmHlT0FtnVs6K6R6LCtWF-4JzqjzJTyOLGA6ZG3ps_nzaaBZZb1c2rIr_bl4KY8NAhyG1Hn6_iOg1oEaIO4dm7tDYMOfg"/>
+</div>
+<h3 class="text-lg font-bold text-slate-900 tracking-tight text-center mt-4">Nishaprakash</h3>
+<p class="text-xs font-semibold text-blue-600 uppercase tracking-wider text-center mt-1">Event Coordinator &amp; Program Manager</p>
+<p class="text-xs leading-relaxed text-slate-600 text-center mt-3 px-2">
+                Plans and coordinates company events, manages programs, organizes activities, and oversees successful event execution.
+              </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CONTACT & INQUIRY SECTION -->
+<section class="w-full py-space-2xl bg-surface scroll-mt-24" id="contact">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin lg:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-start">
+<!-- Left Contact Form -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-space-xl rounded-3xl shadow-md">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary font-bold">Connect With Us</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold mt-1">
+            Enroll or Inquire About Corporate Solutions
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 mb-space-lg">
+            Have questions regarding upcoming cohort dates, syllabus modules, or enterprise custom training? Send us a message.
+          </p>
+<form class="flex flex-col gap-space-md" id="inquiry-form" novalidate="" onsubmit="handleFormSubmit(event)">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold" for="full-name">Your Full Name <span class="text-error">*</span></label>
+<input class="w-full h-11 px-3.5 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md outline-none border border-transparent focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" id="full-name" name="your-name" placeholder="e.g. Alex Henderson" required="" type="text"/>
+<span class="text-error font-body-sm text-xs hidden" id="name-error">Please enter your full name (at least 2 characters).</span>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold" for="email">Work / Personal Email <span class="text-error">*</span></label>
+<input class="w-full h-11 px-3.5 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md outline-none border border-transparent focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" id="email" name="your-email" placeholder="alex@example.com" required="" type="email"/>
+<span class="text-error font-body-sm text-xs hidden" id="email-error">Please enter a valid email address.</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold" for="phone">Phone / WhatsApp Number</label>
+<input class="w-full h-11 px-3.5 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md outline-none border border-transparent focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" id="phone" name="your-phone" placeholder="+1 (555) 000-0000" type="tel"/>
+<span class="text-error font-body-sm text-xs hidden" id="phone-error">Please enter a valid phone number.</span>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface font-semibold" for="message">Message or Specific Goals <span class="text-error">*</span></label>
+<textarea class="w-full p-3.5 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md outline-none border border-transparent focus:border-primary focus:ring-2 focus:ring-primary/20 resize-none transition-all" id="message" name="your-message" placeholder="Tell us about your learning objectives or team requirements..." required="" rows="4"></textarea>
+<span class="text-error font-body-sm text-xs hidden" id="message-error">Please share a brief message (minimum 5 characters).</span>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center gap-3 pt-1">
+<button class="w-full sm:w-auto inline-flex items-center justify-center font-label-lg text-label-lg px-8 h-12 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-semibold shadow-md transition-all cursor-pointer" id="submit-btn" type="submit">
+<span class="flex items-center" id="btn-text">
+    Submit Inquiry
+    <span class="material-symbols-outlined text-[18px] ml-2">send</span>
+</span>
+<span class="hidden items-center gap-2" id="btn-spinner">
+<svg class="animate-spin h-5 w-5 text-white" fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" d="M4 12a8 8 0 018-8v8H4z" fill="currentColor"></path></svg>
+    Preparing Inquiry...
+</span>
+</button>
+<!-- Feedback status message next to / below button -->
+<div class="hidden flex-col gap-3 p-4 rounded-2xl bg-emerald-50/90 text-emerald-950 border border-emerald-200 shadow-sm text-xs mt-2" id="form-feedback-status">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[22px] text-emerald-600 shrink-0">check_circle</span>
+<div class="flex-1">
+<h4 class="font-bold text-sm text-emerald-900" id="form-feedback-title">Inquiry Submitted &amp; Saved!</h4>
+<p class="text-emerald-800 mt-0.5 leading-relaxed" id="form-feedback-text">
+Your message has been captured. If your email app did not open automatically, choose an option below to deliver directly to <strong class="text-emerald-950">official.codelytic@gmail.com</strong>:
+</p>
+</div>
+</div>
+<div class="flex items-center gap-2 flex-wrap pt-1">
+<a class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-xs shadow-xs transition-colors" href="#" id="feedback-gmail-link" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[16px]">mail</span>
+<span>Send via Gmail Web</span>
+</a>
+<a class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-emerald-100 hover:bg-emerald-200 text-emerald-900 font-semibold text-xs transition-colors border border-emerald-300" href="#" id="feedback-mailto-link">
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+<span>Default Mail App</span>
+</a>
+<button class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-white hover:bg-emerald-50 text-emerald-800 font-semibold text-xs transition-colors border border-emerald-200 cursor-pointer" id="feedback-copy-btn" type="button">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+<span id="feedback-copy-text">Copy Inquiry Text</span>
+</button>
+</div>
+</div>
+</div>
+</form>
+</div>
+<!-- Right Office Info & Interactive Location -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<div class="bg-surface-container p-space-xl rounded-3xl shadow-sm flex flex-col gap-space-md">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Contact Us</h3>
+<a class="flex items-start gap-space-sm group p-3 rounded-xl hover:bg-surface-container-high transition-colors cursor-pointer" href="https://www.linkedin.com/in/codelyticsolutions123" rel="noopener noreferrer" target="_blank">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shrink-0 group-hover:scale-105 transition-transform shadow-xs">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.64 1.64 0 0 0-1.66 1.63c0 .91.75 1.64 1.66 1.64s1.64-.73 1.64-1.64c0-.9-.73-1.63-1.64-1.63Z"></path></svg>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold group-hover:text-primary transition-colors flex items-center gap-1">LinkedIn <span class="material-symbols-outlined text-[16px] opacity-70">open_in_new</span></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant break-all">https://www.linkedin.com/in/codelyticsolutions123</span>
+</div>
+</a>
+<a class="flex items-center gap-space-sm group p-3 rounded-xl hover:bg-surface-container-high transition-colors cursor-pointer" href="https://www.instagram.com/official_codelytic_solutions?srtk=MTllbmRzOHB3d2hxcw==" rel="noopener noreferrer" target="_blank">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-secondary shrink-0 group-hover:scale-105 transition-transform shadow-xs">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069M12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.981 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"></path></svg>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold group-hover:text-secondary transition-colors flex items-center gap-1">Instagram <span class="material-symbols-outlined text-[16px] opacity-70">open_in_new</span></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">official_codelytic_solutions</span>
+</div>
+</a>
+<a class="flex items-center gap-space-sm group p-3 rounded-xl hover:bg-surface-container-high transition-colors cursor-pointer" href="mailto:official.codelytic@gmail.com?subject=Inquiry%20-%20Codelytic%20Software%20Solutions">
+<div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-tertiary shrink-0 group-hover:scale-105 transition-transform shadow-xs">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold group-hover:text-tertiary transition-colors flex items-center gap-1">Direct Email <span class="material-symbols-outlined text-[16px] opacity-70">send</span></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">official.codelytic@gmail.com</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div></main><footer class="w-full bg-surface-container-low mt-space-2xl"><div class="max-w-7xl mx-auto px-margin-mobile md:px-margin lg:px-margin-desktop pt-space-2xl pb-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-gutter-lg pb-space-2xl"><div class="lg:col-span-2 flex flex-col gap-space-md"><a class="flex items-center gap-space-sm" href="#home"><img alt="Codelytic official logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxEbMSemiVlbmavzhlItJe5WnlbZL6fPwWcdo9rkXQ4GboCFpTA8vy3CSA8V1aSEYt8irAZkNA_upZ8XLdBqK_AjzLkvYNjq2WM7jiySLA6aPVE0ST7vbnkFUA3Gq7YLOdhYjbggDpJ5dC52sBYZtS2fZofBcyqTW50uq93m2XGViHWuAUQjiIxWXpLWNDIRQ9KYz8wiTssREMhYwue2rSJH_2zipd1vQ62ypupprSMK6KBIMz1vSHig"/><span class="font-title-md text-title-md text-on-surface tracking-tight font-bold">Codelytic</span></a><p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Innovating Education &amp; Software Solutions. Empowering the next generation of engineers with industry-grade curriculum and enterprise technologies.</p></div><div class="flex flex-col gap-space-md"><span class="font-label-lg text-label-lg text-on-surface font-bold uppercase tracking-wider">Quick Links</span><ul class="flex flex-col gap-space-sm"><li class="list-none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#about">About Us</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#vision-mission">Vision &amp; Mission</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#courses">Courses</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#what-makes-us-different">What Makes Us Different</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#leadership-team">Leadership Team</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#contact">Contact Us</a></li></ul></div><div class="flex flex-col gap-space-md"><span class="font-label-lg text-label-lg text-on-surface font-bold uppercase tracking-wider">Courses</span><ul class="flex flex-col gap-space-sm"><li class="list-none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#contact" onclick="selectCourseAndScroll('Full Stack Development')">Full Stack Development</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#contact" onclick="selectCourseAndScroll('Artificial Intelligence &amp; Data Science')">Artificial Intelligence &amp; Data Science</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#contact" onclick="selectCourseAndScroll('Prompt Engineering &amp; Digital Marketing')">Prompt Engineering &amp; Digital Marketing</a></li><li class="list-none"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#contact" onclick="selectCourseAndScroll('UI/UX Design &amp; Frontend System')">UI/UX Design &amp; Frontend System</a></li></ul></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md bg-surface-container-low"><p class="font-body-sm text-body-sm text-on-surface-variant">© 2026 Codelytic Software Solutions. All rights reserved.</p><div class="flex items-center gap-space-lg"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Privacy Policy</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Terms of Service</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors" href="#">Security Overview</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1" href="https://www.linkedin.com/in/codelyticsolutions123" rel="noopener noreferrer" target="_blank"><svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.64 1.64 0 0 0-1.66 1.63c0 .91.75 1.64 1.66 1.64s1.64-.73 1.64-1.64c0-.9-.73-1.63-1.64-1.63Z"></path></svg>LinkedIn</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors flex items-center gap-1" href="https://www.instagram.com/official_codelytic_solutions?srtk=MTllbmRzOHB3d2hxcw==" rel="noopener noreferrer" target="_blank"><svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069M12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.981 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"></path></svg>Instagram</a></div></div></div></footer>
+<script>
+// Mobile navigation toggle
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+if (mobileMenuBtn && mobileMenu) {
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('flex');
+  });
+}
+
+// Single active navigation controller
+const sections = ['home', 'about', 'vision-mission', 'courses', 'what-makes-us-different', 'leadership-team', 'contact'];
+const desktopNavLinks = document.querySelectorAll('#desktop-nav .nav-link');
+const mobileNavLinks = document.querySelectorAll('#mobile-menu .mobile-nav-link');
+
+let isManualNavigating = false;
+let manualNavTimeout = null;
+
+function setActiveNav(targetId) {
+  desktopNavLinks.forEach((link) => {
+    const linkTarget = link.getAttribute('data-target') || (link.getAttribute('href') || '').replace('#', '');
+    if (linkTarget === targetId) {
+      link.classList.remove('text-on-surface-variant', 'font-medium');
+      link.classList.add('text-primary', 'font-bold');
+      link.setAttribute('aria-current', 'page');
+    } else {
+      link.classList.remove('text-primary', 'font-bold');
+      link.classList.add('text-on-surface-variant', 'font-medium');
+      link.removeAttribute('aria-current');
+    }
+  });
+
+  mobileNavLinks.forEach((link) => {
+    const linkTarget = link.getAttribute('data-target') || (link.getAttribute('href') || '').replace('#', '');
+    if (linkTarget === targetId) {
+      link.classList.remove('text-on-surface-variant', 'font-medium', 'hover:bg-surface-container');
+      link.classList.add('text-primary', 'font-bold', 'bg-primary/10');
+      link.setAttribute('aria-current', 'page');
+    } else {
+      link.classList.remove('text-primary', 'font-bold', 'bg-primary/10');
+      link.classList.add('text-on-surface-variant', 'font-medium', 'hover:bg-surface-container');
+      link.removeAttribute('aria-current');
+    }
+  });
+}
+
+function handleScrollSpy() {
+  if (isManualNavigating) return;
+
+  const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+  const windowHeight = window.innerHeight;
+  const fullDocHeight = document.documentElement.scrollHeight;
+
+  if (scrollY < 150) {
+    setActiveNav('home');
+    return;
+  }
+
+  if (scrollY + windowHeight >= fullDocHeight - 80) {
+    setActiveNav('contact');
+    return;
+  }
+
+  const headerOffset = 110;
+  let currentActive = 'home';
+
+  for (let i = 0; i < sections.length; i++) {
+    const section = document.getElementById(sections[i]);
+    if (section) {
+      const top = section.offsetTop - headerOffset;
+      if (scrollY >= top) {
+        currentActive = sections[i];
+      }
+    }
+  }
+
+  setActiveNav(currentActive);
+}
+
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      handleScrollSpy();
+      ticking = false;
+    });
+    ticking = true;
+  }
+}, { passive: true });
+
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener('click', function (e) {
+    const targetId = this.getAttribute('href');
+    if (!targetId || targetId === '#') return;
+    
+    const cleanId = targetId.replace('#', '');
+    const target = document.getElementById(cleanId);
+    if (target) {
+      e.preventDefault();
+      
+      setActiveNav(cleanId);
+      isManualNavigating = true;
+
+      if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+      }
+
+      const headerOffset = 80;
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: Math.max(0, offsetPosition),
+        behavior: 'smooth'
+      });
+
+      if (history.pushState) {
+        history.pushState(null, null, targetId);
+      }
+
+      if (manualNavTimeout) clearTimeout(manualNavTimeout);
+      manualNavTimeout = setTimeout(() => {
+        isManualNavigating = false;
+        setActiveNav(cleanId);
+      }, 700);
+    }
+  });
+});
+
+// Custom Dropdown Logic
+function toggleProgramDropdown(e) {
+  if (e) e.stopPropagation();
+  const list = document.getElementById('program-options-list');
+  const arrow = document.getElementById('program-arrow-icon');
+  const btn = document.getElementById('program-trigger-btn');
+  if (!list) return;
+
+  const isHidden = list.classList.contains('hidden');
+  if (isHidden) {
+    list.classList.remove('hidden');
+    if (arrow) arrow.classList.add('rotate-180');
+    if (btn) btn.setAttribute('aria-expanded', 'true');
+  } else {
+    closeProgramDropdown();
+  }
+}
+
+function closeProgramDropdown() {
+  const list = document.getElementById('program-options-list');
+  const arrow = document.getElementById('program-arrow-icon');
+  const btn = document.getElementById('program-trigger-btn');
+  if (list && !list.classList.contains('hidden')) {
+    list.classList.add('hidden');
+    if (arrow) arrow.classList.remove('rotate-180');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+  }
+}
+
+function selectProgramOption(val) {
+  const hiddenInput = document.getElementById('program-select');
+  const triggerBtn = document.getElementById('program-trigger-btn');
+  const selectedText = document.getElementById('program-selected-text');
+  const programError = document.getElementById('program-error');
+  const list = document.getElementById('program-options-list');
+
+  if (hiddenInput) {
+    hiddenInput.value = val;
+  }
+  if (selectedText) {
+    selectedText.textContent = val;
+    selectedText.classList.remove('text-on-surface-variant');
+    selectedText.classList.add('text-on-surface', 'font-medium');
+  }
+  if (triggerBtn) {
+    triggerBtn.classList.remove('border-error', 'ring-1', 'ring-error');
+  }
+  if (programError) {
+    programError.classList.add('hidden');
+  }
+
+  // Highlight checkmark in option list
+  if (list) {
+    const items = list.querySelectorAll('[role="option"]');
+    items.forEach(item => {
+      const check = item.querySelector('.opt-check');
+      if (item.getAttribute('data-value') === val) {
+        item.classList.add('bg-primary/5', 'text-primary', 'font-semibold');
+        if (check) check.classList.remove('hidden');
+      } else {
+        item.classList.remove('bg-primary/5', 'text-primary', 'font-semibold');
+        if (check) check.classList.add('hidden');
+      }
+    });
+  }
+
+  closeProgramDropdown();
+}
+
+// Close dropdown on click outside
+document.addEventListener('click', (e) => {
+  const wrapper = document.getElementById('program-dropdown-wrapper');
+  if (wrapper && !wrapper.contains(e.target)) {
+    closeProgramDropdown();
+  }
+});
+
+function selectCourseAndScroll(courseName) {
+  // Normalize matching
+  const options = [
+    "Full Stack Development",
+    "Artificial Intelligence & Data Science",
+    "Prompt Engineering & Digital Marketing",
+    "UI/UX Design & Frontend System",
+    "Enterprise Custom Training"
+  ];
+  let matched = courseName;
+  for (let opt of options) {
+    if (opt.toLowerCase().includes(courseName.toLowerCase()) || courseName.toLowerCase().includes(opt.toLowerCase())) {
+      matched = opt;
+      break;
+    }
+  }
+  selectProgramOption(matched);
+
+  const contactSection = document.getElementById('contact');
+  if (contactSection) {
+    setActiveNav('contact');
+    isManualNavigating = true;
+    contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(() => {
+      isManualNavigating = false;
+      setActiveNav('contact');
+    }, 700);
+  }
+  setTimeout(() => {
+    const nameInput = document.getElementById('full-name');
+    if (nameInput) nameInput.focus();
+  }, 600);
+}
+
+function handleFormSubmit(e) {
+  e.preventDefault();
+  
+  const nameInput = document.getElementById('full-name');
+  const emailInput = document.getElementById('email');
+  const phoneInput = document.getElementById('phone');
+  const messageInput = document.getElementById('message');
+
+  const nameError = document.getElementById('name-error');
+  const emailError = document.getElementById('email-error');
+  const messageError = document.getElementById('message-error');
+  
+  let isValid = true;
+
+  // Name check
+  if (!nameInput.value.trim() || nameInput.value.trim().length < 2) {
+    nameInput.classList.add('border-error', 'ring-1', 'ring-error');
+    nameError.classList.remove('hidden');
+    isValid = false;
+  } else {
+    nameInput.classList.remove('border-error', 'ring-1', 'ring-error');
+    nameError.classList.add('hidden');
+  }
+
+  // Email check
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(emailInput.value.trim())) {
+    emailInput.classList.add('border-error', 'ring-1', 'ring-error');
+    emailError.classList.remove('hidden');
+    isValid = false;
+  } else {
+    emailInput.classList.remove('border-error', 'ring-1', 'ring-error');
+    emailError.classList.add('hidden');
+  }
+
+  // Message check
+  if (!messageInput.value.trim() || messageInput.value.trim().length < 5) {
+    messageInput.classList.add('border-error', 'ring-1', 'ring-error');
+    messageError.classList.remove('hidden');
+    isValid = false;
+  } else {
+    messageInput.classList.remove('border-error', 'ring-1', 'ring-error');
+    messageError.classList.add('hidden');
+  }
+
+  if (!isValid) {
+    return;
+  }
+
+  const fullName = nameInput.value.trim();
+  const userEmail = emailInput.value.trim();
+  const userPhone = phoneInput.value.trim() || 'Not provided';
+  const userMessage = messageInput.value.trim();
+
+  // Loading state
+  const btn = document.getElementById('submit-btn');
+  const btnText = document.getElementById('btn-text');
+  const btnSpinner = document.getElementById('btn-spinner');
+  const feedbackStatus = document.getElementById('form-feedback-status');
+  
+  btn.disabled = true;
+  btnText.classList.add('hidden');
+  btnSpinner.classList.remove('hidden');
+  btnSpinner.classList.add('flex');
+
+  // Build inquiry email details
+  const subject = `New Inquiry from ${fullName}`;
+  const body = `Full Name: ${fullName}\nEmail: ${userEmail}\nPhone: ${userPhone}\n\nMessage / Goals:\n${userMessage}`;
+
+  const mailtoUrl = `mailto:official.codelytic@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=official.codelytic@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  // 1. Post to local server endpoint
+  try {
+    fetch('/api/inquiry', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: fullName,
+        email: userEmail,
+        phone: userPhone,
+        message: userMessage,
+        subject: subject
+      })
+    }).catch(function() {});
+  } catch(e) {}
+
+  // 2. Also dispatch to FormSubmit for online delivery
+  try {
+    fetch('https://formsubmit.co/ajax/official.codelytic@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        name: fullName,
+        email: userEmail,
+        phone: userPhone,
+        message: userMessage,
+        _subject: subject
+      })
+    }).catch(function() {});
+  } catch(e) {}
+
+  setTimeout(() => {
+    btn.disabled = false;
+    btnText.classList.remove('hidden');
+    btnSpinner.classList.remove('flex');
+    btnSpinner.classList.add('hidden');
+
+    if (feedbackStatus) {
+      feedbackStatus.classList.remove('hidden');
+      feedbackStatus.classList.add('flex');
+
+      const gmailLink = document.getElementById('feedback-gmail-link');
+      if (gmailLink) gmailLink.href = gmailWebUrl;
+
+      const mailtoLink = document.getElementById('feedback-mailto-link');
+      if (mailtoLink) mailtoLink.href = mailtoUrl;
+
+      const copyBtn = document.getElementById('feedback-copy-btn');
+      const copyText = document.getElementById('feedback-copy-text');
+      if (copyBtn) {
+        copyBtn.onclick = () => {
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(body).then(() => {
+              if (copyText) copyText.textContent = 'Copied!';
+              setTimeout(() => { if (copyText) copyText.textContent = 'Copy Inquiry Text'; }, 2500);
+            });
+          }
+        };
+      }
+    }
+
+    // Reset Form fields
+    document.getElementById('inquiry-form').reset();
+  }, 400);
+}
+
+// Live validation listeners for inquiry form
+const liveNameInput = document.getElementById('full-name');
+const liveEmailInput = document.getElementById('email');
+const liveMessageInput = document.getElementById('message');
+const liveNameError = document.getElementById('name-error');
+const liveEmailError = document.getElementById('email-error');
+const liveMessageError = document.getElementById('message-error');
+const validEmailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+if (liveEmailInput && liveEmailError) {
+  liveEmailInput.addEventListener('input', () => {
+    if (validEmailRegex.test(liveEmailInput.value.trim())) {
+      liveEmailInput.classList.remove('border-error', 'ring-1', 'ring-error');
+      liveEmailError.classList.add('hidden');
+    }
+  });
+}
+if (liveNameInput && liveNameError) {
+  liveNameInput.addEventListener('input', () => {
+    if (liveNameInput.value.trim().length >= 2) {
+      liveNameInput.classList.remove('border-error', 'ring-1', 'ring-error');
+      liveNameError.classList.add('hidden');
+    }
+  });
+}
+if (liveMessageInput && liveMessageError) {
+  liveMessageInput.addEventListener('input', () => {
+    if (liveMessageInput.value.trim().length >= 5) {
+      liveMessageInput.classList.remove('border-error', 'ring-1', 'ring-error');
+      liveMessageError.classList.add('hidden');
+    }
+  });
+}
+
+// Initial active check on load
+document.addEventListener('DOMContentLoaded', () => {
+  handleScrollSpy();
+});
+</script>
+
+
+<!-- COURSE ENROLLMENT POPUP / MODAL -->
+<div id="enrollment-modal" class="fixed inset-0 z-[120] flex items-center justify-center p-4 bg-on-surface/50 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none" role="dialog" aria-modal="true" aria-labelledby="enrollment-modal-title">
+  <div id="enrollment-modal-backdrop" class="absolute inset-0"></div>
+  <div class="relative w-full max-w-xl max-h-[92vh] overflow-y-auto bg-surface-container-lowest text-on-surface rounded-3xl shadow-2xl border border-outline-variant/30 p-6 sm:p-8 transform scale-95 transition-all duration-300 z-10" id="enrollment-modal-content">
+    
+    <!-- Close Button -->
+    <button id="close-enrollment-modal-btn" type="button" aria-label="Close enrollment modal" class="absolute top-4 right-4 w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors cursor-pointer">
+      <span class="material-symbols-outlined text-[20px]">close</span>
+    </button>
+
+    <!-- Main Enrollment Form Container -->
+    <div id="enroll-form-container">
+      <!-- Header -->
+      <div class="mb-6">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-wide uppercase mb-2">
+          <span class="material-symbols-outlined text-[16px]">school</span>
+          <span>Course Enrollment • Cohort 2026</span>
+        </div>
+        <h3 id="enrollment-modal-title" class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">
+          Enroll in Your Engineering Program
+        </h3>
+        <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+          Fill in your academic and contact details to secure your enrollment slot and receive your onboarding curriculum package.
+        </p>
+      </div>
+
+      <!-- Form -->
+      <form id="enrollment-form" novalidate onsubmit="handleEnrollmentSubmit(event)" class="space-y-4">
+        
+        <!-- Full Name -->
+        <div class="flex flex-col gap-1">
+          <label class="font-label-sm text-label-sm text-on-surface font-semibold" for="enroll-name">
+            Full Name <span class="text-error">*</span>
+          </label>
+          <input type="text" id="enroll-name" placeholder="e.g. Alex Henderson" required class="w-full h-11 px-3.5 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md outline-none border border-transparent focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" />
+          <span id="enroll-name-error" class="text-error font-body-sm text-xs hidden">Please enter your full name (at least 2 characters).</span>
+        </div>
+
+        <!-- Email ID & WhatsApp Number -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="flex flex-col gap-1">
+            <label class="font-label-sm text-label-sm text-on-surface font-semibold" for="enroll-email">
+              Email ID <span class="text-error">*</span>
+            </label>
+            <input type="email" id="enroll-email" placeholder="e.g. alex@example.com" required class="w-full h-11 px-3.5 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md outline-none border border-transparent focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" />
+            <span id="enroll-email-error" class="text-error font-body-sm text-xs hidden">Please enter a valid email address.</span>
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label class="font-label-sm text-label-sm text-on-surface font-semibold" for="enroll-whatsapp">
+              WhatsApp Number <span class="text-error">*</span>
+            </label>
+            <input type="tel" id="enroll-whatsapp" placeholder="e.g. +91 98765 43210" required class="w-full h-11 px-3.5 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md outline-none border border-transparent focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" />
+            <span id="enroll-whatsapp-error" class="text-error font-body-sm text-xs hidden">Please enter a valid WhatsApp number (at least 10 digits).</span>
+          </div>
+        </div>
+
+        <!-- Year of Study & Department -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="flex flex-col gap-1">
+            <label class="font-label-sm text-label-sm text-on-surface font-semibold" for="enroll-year">
+              Year of Study <span class="text-error">*</span>
+            </label>
+            <select id="enroll-year" required class="w-full h-11 px-3.5 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md outline-none border border-transparent focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all cursor-pointer">
+              <option value="" disabled selected>Select Year of Study...</option>
+              <option value="Year I">Year I (1st Year)</option>
+              <option value="Year II">Year II (2nd Year)</option>
+              <option value="Year III">Year III (3rd Year)</option>
+              <option value="Year IV">Year IV (Final Year)</option>
+            </select>
+            <span id="enroll-year-error" class="text-error font-body-sm text-xs hidden">Please select your year of study.</span>
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <label class="font-label-sm text-label-sm text-on-surface font-semibold" for="enroll-department">
+              Department <span class="text-error">*</span>
+            </label>
+            <input type="text" id="enroll-department" placeholder="e.g. Computer Science, IT, ECE" required class="w-full h-11 px-3.5 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md outline-none border border-transparent focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" />
+            <span id="enroll-department-error" class="text-error font-body-sm text-xs hidden">Please enter your department.</span>
+          </div>
+        </div>
+
+        <!-- Course Name (automatically populated & selectable) -->
+        <div class="flex flex-col gap-1">
+          <label class="font-label-sm text-label-sm text-on-surface font-semibold" for="enroll-course">
+            Course Name <span class="text-error">*</span>
+          </label>
+          <select id="enroll-course" required class="w-full h-11 px-3.5 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md outline-none border border-transparent focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all cursor-pointer font-semibold text-primary">
+            <option value="Full Stack Development">Full Stack Development (4 Weeks Certified)</option>
+            <option value="Artificial Intelligence &amp; Data Science">Artificial Intelligence &amp; Data Science (4 Weeks Certified)</option>
+            <option value="Prompt Engineering &amp; Digital Marketing">Prompt Engineering &amp; Digital Marketing (4 Weeks Certified)</option>
+            <option value="UI/UX Design &amp; Frontend System">UI/UX Design &amp; Frontend System (4 Weeks Certified)</option>
+          </select>
+          <span id="enroll-course-error" class="text-error font-body-sm text-xs hidden">Please select a course.</span>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="pt-2">
+          <button id="enroll-submit-btn" type="submit" class="w-full h-12 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-semibold text-label-lg shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]">
+            <span id="enroll-btn-text" class="flex items-center gap-2">
+              <span>Submit Enrollment</span>
+              <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </span>
+            <span id="enroll-btn-spinner" class="hidden items-center gap-2">
+              <svg class="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" d="M4 12a8 8 0 018-8v8H4z" fill="currentColor"></path></svg>
+              <span>Processing Enrollment...</span>
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Success View (hidden until submission succeeds) -->
+    <div id="enroll-success-container" class="hidden flex-col items-center text-center py-4 space-y-4">
+      <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shadow-sm">
+        <span class="material-symbols-outlined text-[36px]">check_circle</span>
+      </div>
+      <div>
+        <span class="inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-2 border border-emerald-200">Enrollment Confirmed</span>
+        <h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">You're Enrolled Successfully!</h3>
+        <p class="font-body-md text-on-surface-variant max-w-md mx-auto mt-1">
+          Thank you, <strong id="success-student-name" class="text-on-surface font-semibold"></strong>! Your seat in <strong id="success-course-name" class="text-primary font-semibold"></strong> has been reserved.
+        </p>
+      </div>
+
+      <!-- Summary Card -->
+      <div class="w-full bg-surface-container-low rounded-2xl p-4 text-left border border-surface-container space-y-2.5 text-xs text-on-surface-variant">
+        <div class="flex items-center justify-between pb-2 border-b border-surface-container">
+          <span class="font-medium">Enrollment ID</span>
+          <span id="success-enroll-id" class="font-code-sm font-bold text-primary">CDL-ENR-000000</span>
+        </div>
+        <div class="flex items-start gap-2 text-emerald-800">
+          <span class="material-symbols-outlined text-[17px] text-emerald-600 shrink-0">mark_email_read</span>
+          <span>Notification email sent to <strong>official.codelytic@gmail.com</strong></span>
+        </div>
+        <div class="flex items-start gap-2 text-emerald-800">
+          <span class="material-symbols-outlined text-[17px] text-emerald-600 shrink-0">mail</span>
+          <span>Confirmation email sent to <strong id="success-student-email"></strong></span>
+        </div>
+        <div class="flex items-start gap-2 text-emerald-800">
+          <span class="material-symbols-outlined text-[17px] text-emerald-600 shrink-0">chat</span>
+          <span>Mentor onboarding message will be sent to WhatsApp: <strong id="success-student-whatsapp"></strong></span>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 w-full pt-2">
+        <button id="close-enroll-success-btn" type="button" class="w-full sm:w-auto px-6 h-11 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-semibold text-xs shadow-sm transition-all cursor-pointer">
+          Done
+        </button>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SIGN-IN OPTIONS MODAL -->
+<div id="signin-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-on-surface/40 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none" role="dialog" aria-modal="true" aria-labelledby="signin-modal-title">
+  <div id="signin-modal-backdrop" class="absolute inset-0"></div>
+  <div class="relative w-full max-w-md bg-surface-container-lowest text-on-surface rounded-2xl shadow-2xl border border-outline-variant/30 p-6 sm:p-8 transform scale-95 transition-all duration-300 z-10" id="signin-modal-content">
+    
+    <!-- Close button -->
+    <button id="close-signin-modal-btn" type="button" aria-label="Close sign-in modal" class="absolute top-4 right-4 w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors cursor-pointer">
+      <span class="material-symbols-outlined text-[20px]">close</span>
+    </button>
+
+    <!-- Header info -->
+    <div class="flex items-center gap-3.5 mb-5">
+      <div class="w-11 h-11 rounded-xl overflow-hidden shrink-0 border border-outline-variant/30 shadow-sm bg-white flex items-center justify-center">
+        <img src="codelytic-logo.jpg" alt="Codelytic Logo" class="w-full h-full object-contain" />
+      </div>
+      <div>
+        <h3 id="signin-modal-title" class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">Sign in to Codelytic</h3>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">Continue your tech career and mentorship journey</p>
+      </div>
+    </div>
+
+    <!-- Provider Sign-in Options (Google OAuth) -->
+    <div class="space-y-3 pt-1">
+      <!-- Continue with Google Button -->
+      <button id="google-signin-btn" type="button" class="w-full h-12 px-4 rounded-xl border border-outline-variant/60 hover:border-primary/50 bg-surface-container-lowest hover:bg-surface-container-low transition-all duration-200 flex items-center justify-center gap-3 shadow-sm hover:shadow active:scale-[0.99] font-medium text-on-surface group cursor-pointer">
+        <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+        </svg>
+        <span class="font-label-lg text-label-lg font-semibold text-on-surface">Continue with Google</span>
+      </button>
+
+      
+    </div>
+
+    <!-- Terms note -->
+    <p class="font-body-sm text-[11px] text-center text-on-surface-variant mt-4 leading-normal">
+      By signing in, you agree to Codelytic's <a href="#about" class="text-primary hover:underline">Terms of Service</a> &amp; <a href="#about" class="text-primary hover:underline">Privacy Policy</a>.
+    </p>
+  </div>
+</div>
+
+<!-- PROFILE DETAILS MODAL / SECTION -->
+<div id="profile-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-on-surface/40 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none" role="dialog" aria-modal="true" aria-labelledby="profile-modal-title">
+  <div id="profile-modal-backdrop" class="absolute inset-0"></div>
+  <div class="relative w-full max-w-lg bg-surface-container-lowest text-on-surface rounded-2xl shadow-2xl border border-outline-variant/30 overflow-hidden transform scale-95 transition-all duration-300 z-10" id="profile-modal-content">
+    
+    <!-- Top banner with gradient -->
+    <div class="bg-gradient-to-r from-primary/10 via-surface-container-high to-secondary-container/15 p-6 border-b border-surface-container relative">
+      <button id="close-profile-modal-btn" type="button" aria-label="Close profile modal" class="absolute top-4 right-4 w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container/60 transition-colors cursor-pointer">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+      </button>
+
+      <div class="flex items-center gap-4">
+        <!-- Avatar circle with provider badge -->
+        <div class="relative shrink-0">
+          <div id="profile-display-avatar" class="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-container text-white flex items-center justify-center font-extrabold text-2xl shadow-md uppercase tracking-wider select-none overflow-hidden">
+            <span id="profile-display-initial">A</span>
+            <img id="profile-display-img" class="hidden absolute inset-0 w-full h-full object-cover rounded-2xl" alt="Profile Picture" />
+          </div>
+          <div id="profile-display-provider-badge" class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-white shadow-md flex items-center justify-center p-1 border border-outline-variant/30">
+            <!-- Injected via JS -->
+          </div>
+        </div>
+
+        <div class="min-w-0 flex-1">
+          <div class="flex items-center gap-2 flex-wrap">
+            <h3 id="profile-display-name" class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Alex Rivers</h3>
+            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-100 text-emerald-800 shrink-0">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+              Active Scholar
+            </span>
+          </div>
+          
+          <!-- Authenticated Google User Email ID -->
+          <div class="flex items-center gap-1.5 mt-1">
+            <span class="material-symbols-outlined text-[17px] text-emerald-600 shrink-0">verified</span>
+            <span id="profile-email-text" class="font-label-lg text-label-lg text-primary font-bold truncate">alex.rivers@gmail.com</span>
+          </div>
+          <p id="profile-display-provider-text" class="text-xs text-on-surface-variant font-medium mt-0.5">Signed in with Google</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Body content with profile details -->
+    <div class="p-6 space-y-5">
+      <!-- Info Cards Grid -->
+      <div class="grid grid-cols-2 gap-3">
+        <div class="p-3.5 rounded-xl bg-surface-container-low border border-surface-container">
+          <span class="text-xs font-medium text-on-surface-variant block">Learner ID</span>
+          <span id="profile-display-id" class="font-code-sm text-code-sm font-bold text-on-surface mt-0.5 block">#CDL-2026-8942</span>
+        </div>
+        <div class="p-3.5 rounded-xl bg-surface-container-low border border-surface-container">
+          <span class="text-xs font-medium text-on-surface-variant block">Membership Tier</span>
+          <span class="font-label-sm text-label-sm font-bold text-primary mt-0.5 block">Enterprise Pro Scholar</span>
+        </div>
+        <div class="p-3.5 rounded-xl bg-surface-container-low border border-surface-container">
+          <span class="text-xs font-medium text-on-surface-variant block">Enrolled Program</span>
+          <span id="profile-display-program" class="font-label-sm text-label-sm font-bold text-on-surface mt-0.5 block truncate">Full Stack Engineering</span>
+        </div>
+        <div class="p-3.5 rounded-xl bg-surface-container-low border border-surface-container">
+          <span class="text-xs font-medium text-on-surface-variant block">Enrolled Since</span>
+          <span id="profile-display-date" class="font-label-sm text-label-sm font-bold text-on-surface mt-0.5 block">November 2026</span>
+        </div>
+      </div>
+
+
+
+      <!-- Action buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2 border-t border-surface-container">
+        <button id="profile-switch-account-btn" type="button" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 h-10 rounded-lg border border-outline-variant hover:bg-surface-container text-xs font-semibold text-on-surface transition-colors cursor-pointer">
+          <span class="material-symbols-outlined text-[16px]">swap_horiz</span>
+          <span id="profile-switch-text">Switch Google Account</span>
+        </button>
+        
+        <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
+          <button id="profile-signout-btn" type="button" class="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 h-10 rounded-lg text-error hover:bg-error-container/40 text-xs font-semibold transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[16px]">logout</span>
+            <span>Sign Out</span>
+          </button>
+          
+          <button id="profile-explore-btn" type="button" class="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 h-10 rounded-lg bg-primary hover:bg-primary-container text-on-primary text-xs font-semibold transition-colors shadow-sm cursor-pointer">
+            <span>Explore Courses</span>
+            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST NOTIFICATION -->
+<div id="auth-toast" class="fixed bottom-6 right-6 z-[110] transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300 max-w-sm w-full bg-surface-container-lowest text-on-surface p-4 rounded-xl shadow-2xl border border-outline-variant/30 flex items-center gap-3">
+  <div id="auth-toast-icon-wrapper" class="w-9 h-9 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+    <span class="material-symbols-outlined text-[20px]" id="auth-toast-icon">check_circle</span>
+  </div>
+  <div class="flex-1 min-w-0">
+    <h5 id="auth-toast-title" class="text-xs font-bold text-on-surface">Signed In</h5>
+    <p id="auth-toast-msg" class="text-[11px] text-on-surface-variant truncate">Welcome back, alex.rivers@gmail.com</p>
+  </div>
+</div>
+
+<script id="auth-system-script">
+// AUTHENTICATION & PROFILE INTERACTION SYSTEM (FIREBASE AUTHENTICATION)
+(function() {
+  const STORAGE_KEY = 'codelytic_user_auth';
+
+  // =========================================================================
+  // FIREBASE CONFIGURATION
+  // Configure with your Firebase project credentials:
+  // Firebase Console -> Project Settings -> General -> Your apps -> Web app
+  // =========================================================================
+  const firebaseConfig = {
+    apiKey: "AIzaSyDoU9x0KdcpkSn5x7flxeDwCr9Ej-Pb5Yo",
+    authDomain: "codelytic-edutech-software.firebaseapp.com",
+    projectId: "codelytic-edutech-software",
+    storageBucket: "codelytic-edutech-software.firebasestorage.app",
+    messagingSenderId: "278838388766",
+    appId: "1:278838388766:web:51baa46c6980ed2e4b260f",
+    measurementId: "G-20513K0QS3"
+  };
+
+  // Google SVG Logo
+  const GOOGLE_SVG = '<svg class="w-4 h-4" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>';
+
+  // Initialize Firebase App & Auth
+  let auth = null;
+  let googleProvider = null;
+  if (typeof firebase !== 'undefined' && firebase.initializeApp) {
+    try {
+      if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+      }
+      if (firebase.auth) {
+        auth = firebase.auth();
+        googleProvider = new firebase.auth.GoogleAuthProvider();
+        // Force account selection screen every time user clicks
+        googleProvider.setCustomParameters({
+          prompt: 'select_account'
+        });
+      }
+    } catch(err) {
+      console.warn('Firebase init notice:', err);
+    }
+  }
+
+  // DOM Elements
+  const getStartedBtn = document.getElementById('get-started-btn');
+  const profileBtn = document.getElementById('profile-btn');
+  const profileBtnIcon = document.getElementById('profile-btn-icon');
+  const profileBtnInitials = document.getElementById('profile-btn-initials');
+  const profileBtnImg = document.getElementById('profile-btn-img');
+  const profileBtnStatusDot = document.getElementById('profile-btn-status-dot');
+
+  const mobileProfileBtn = document.getElementById('mobile-profile-btn');
+  const mobileProfileLabel = document.getElementById('mobile-profile-label');
+  const mobileProfileIcon = document.getElementById('mobile-profile-icon');
+
+  // Modals
+  const signinModal = document.getElementById('signin-modal');
+  const signinModalContent = document.getElementById('signin-modal-content');
+  const signinModalBackdrop = document.getElementById('signin-modal-backdrop');
+  const closeSigninModalBtn = document.getElementById('close-signin-modal-btn');
+  const googleSigninBtn = document.getElementById('google-signin-btn');
+
+  const profileModal = document.getElementById('profile-modal');
+  const profileModalContent = document.getElementById('profile-modal-content');
+  const profileModalBackdrop = document.getElementById('profile-modal-backdrop');
+  const closeProfileModalBtn = document.getElementById('close-profile-modal-btn');
+
+  // Profile Details Elements
+  const profileDisplayName = document.getElementById('profile-display-name');
+  const profileEmailText = document.getElementById('profile-email-text');
+  const profileDisplayAvatar = document.getElementById('profile-display-avatar');
+  const profileDisplayInitial = document.getElementById('profile-display-initial');
+  const profileDisplayImg = document.getElementById('profile-display-img');
+  const profileDisplayProviderBadge = document.getElementById('profile-display-provider-badge');
+  const profileDisplayProviderText = document.getElementById('profile-display-provider-text');
+  const profileDisplayId = document.getElementById('profile-display-id');
+  const profileDisplayProgram = document.getElementById('profile-display-program');
+  const profileDisplayDate = document.getElementById('profile-display-date');
+  const profileSwitchAccountBtn = document.getElementById('profile-switch-account-btn');
+  const profileSwitchText = document.getElementById('profile-switch-text');
+  const profileSignoutBtn = document.getElementById('profile-signout-btn');
+  const profileExploreBtn = document.getElementById('profile-explore-btn');
+
+  // Toast
+  let toastTimeout = null;
+  function showToast(title, msg, isSuccess = true) {
+    let toast = document.getElementById('auth-feedback-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'auth-feedback-toast';
+      toast.className = 'fixed bottom-5 right-5 z-[200] max-w-sm px-4 py-3 rounded-xl shadow-xl flex items-center gap-3 transition-all duration-300 transform translate-y-10 opacity-0 pointer-events-none';
+      document.body.appendChild(toast);
+    }
+    const bg = isSuccess ? 'bg-emerald-600 text-white' : 'bg-surface-container-highest text-on-surface border border-outline-variant';
+    const icon = isSuccess ? 'check_circle' : 'info';
+    toast.className = `fixed bottom-5 right-5 z-[200] max-w-sm px-4 py-3 rounded-xl shadow-xl flex items-center gap-3 transition-all duration-300 transform ${bg}`;
+    toast.innerHTML = `
+      <span class="material-symbols-outlined text-[22px] shrink-0 ${isSuccess ? 'text-white' : 'text-primary'}">${icon}</span>
+      <div class="text-xs">
+        <strong class="block font-semibold text-sm leading-tight">${title}</strong>
+        <span class="opacity-90">${msg}</span>
+      </div>
+    `;
+    requestAnimationFrame(() => {
+      toast.classList.remove('translate-y-10', 'opacity-0', 'pointer-events-none');
+      toast.classList.add('translate-y-0', 'opacity-100');
+    });
+    if (toastTimeout) clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => {
+      toast.classList.add('translate-y-10', 'opacity-0', 'pointer-events-none');
+    }, 4000);
+  }
+
+  // Session persistence via localStorage
+  function getUser() {
+    try {
+      const data = localStorage.getItem(STORAGE_KEY);
+      return data ? JSON.parse(data) : null;
+    } catch(e) {
+      return null;
+    }
+  }
+
+  function setUser(user) {
+    if (user) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(user));
+    } else {
+      localStorage.removeItem(STORAGE_KEY);
+    }
+  }
+
+  function getInitials(name) {
+    if (!name) return 'U';
+    const parts = name.trim().split(/\s+/);
+    if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+    return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+  }
+
+  // Update UI Elements based on Authentication State
+  function updateUI() {
+    const user = getUser();
+
+    if (user) {
+      // 1. Header Profile Button (signed-in state)
+      if (profileBtnIcon) profileBtnIcon.classList.add('hidden');
+      
+      if (user.photoURL) {
+        if (profileBtnImg) {
+          profileBtnImg.crossOrigin = 'anonymous';
+          profileBtnImg.src = user.photoURL;
+          profileBtnImg.style.display = 'block';
+          profileBtnImg.classList.remove('hidden');
+          profileBtnImg.onerror = function() {
+            this.style.display = 'none';
+            this.classList.add('hidden');
+            if (profileBtnInitials) {
+              profileBtnInitials.textContent = getInitials(user.name);
+              profileBtnInitials.classList.remove('hidden');
+            }
+          };
+        }
+        if (profileBtnInitials) profileBtnInitials.classList.add('hidden');
+      } else {
+        if (profileBtnImg) { profileBtnImg.classList.add('hidden'); profileBtnImg.style.display = 'none'; }
+        if (profileBtnInitials) {
+          profileBtnInitials.textContent = getInitials(user.name);
+          profileBtnInitials.classList.remove('hidden');
+        }
+      }
+
+      if (profileBtnStatusDot) profileBtnStatusDot.classList.remove('hidden');
+
+      // 2. Mobile Profile Button
+      if (mobileProfileLabel) mobileProfileLabel.textContent = user.name || 'My Profile';
+      if (mobileProfileIcon) mobileProfileIcon.textContent = 'verified_user';
+
+      // 3. Profile Modal Elements
+      if (profileDisplayName) profileDisplayName.textContent = user.name || 'Learner';
+      if (profileEmailText) profileEmailText.textContent = user.email || '';
+      if (profileDisplayProviderText) profileDisplayProviderText.textContent = 'Signed in with Google';
+      if (profileDisplayProviderBadge) profileDisplayProviderBadge.innerHTML = GOOGLE_SVG;
+
+      // Profile Modal Avatar
+      if (user.photoURL) {
+        if (profileDisplayImg) {
+          profileDisplayImg.crossOrigin = 'anonymous';
+          profileDisplayImg.src = user.photoURL;
+          profileDisplayImg.style.display = 'block';
+          profileDisplayImg.classList.remove('hidden');
+          profileDisplayImg.onerror = function() {
+            this.style.display = 'none';
+            this.classList.add('hidden');
+            if (profileDisplayInitial) {
+              profileDisplayInitial.textContent = getInitials(user.name);
+              profileDisplayInitial.classList.remove('hidden');
+            }
+          };
+        }
+        if (profileDisplayInitial) profileDisplayInitial.classList.add('hidden');
+      } else {
+        if (profileDisplayImg) { profileDisplayImg.classList.add('hidden'); profileDisplayImg.style.display = 'none'; }
+        if (profileDisplayInitial) {
+          profileDisplayInitial.textContent = getInitials(user.name);
+          profileDisplayInitial.classList.remove('hidden');
+        }
+      }
+
+      if (profileDisplayId) {
+        const hash = Math.abs((user.email || 'user').split('').reduce((a,b)=>{a=((a<<5)-a)+b.charCodeAt(0);return a&a},0)) % 9000 + 1000;
+        profileDisplayId.textContent = `#CDL-2026-${hash}`;
+      }
+
+      if (profileSwitchText) profileSwitchText.textContent = 'Switch Google Account';
+
+    } else {
+      // Signed out state
+      if (profileBtnIcon) profileBtnIcon.classList.remove('hidden');
+      if (profileBtnInitials) profileBtnInitials.classList.add('hidden');
+      if (profileBtnImg) {
+        profileBtnImg.src = '';
+        profileBtnImg.classList.add('hidden');
+      }
+      if (profileBtnStatusDot) profileBtnStatusDot.classList.add('hidden');
+
+      if (mobileProfileLabel) mobileProfileLabel.textContent = 'Sign In';
+      if (mobileProfileIcon) mobileProfileIcon.textContent = 'person';
+    }
+  }
+
+  // Modal Open / Close Helpers
+  function openModal(modal, content) {
+    if (!modal) return;
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    modal.classList.add('opacity-100');
+    if (content) {
+      content.classList.remove('scale-95');
+      content.classList.add('scale-100');
+    }
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(modal, content) {
+    if (!modal) return;
+    modal.classList.remove('opacity-100');
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    if (content) {
+      content.classList.remove('scale-100');
+      content.classList.add('scale-95');
+    }
+    document.body.style.overflow = '';
+  }
+
+  function openSignInModal() {
+    closeProfileModal();
+    openModal(signinModal, signinModalContent);
+  }
+
+  function closeSignInModal() {
+    closeModal(signinModal, signinModalContent);
+  }
+
+  function openProfileModal() {
+    closeSignInModal();
+    updateUI();
+    openModal(profileModal, profileModalContent);
+  }
+
+  function closeProfileModal() {
+    closeModal(profileModal, profileModalContent);
+  }
+
+  // Real Google Sign-in via Firebase Authentication
+  function handleGoogleSignIn() {
+    if (!auth || !googleProvider) {
+      showToast('Firebase Notice', 'Firebase Auth SDK is initializing. Please check connection.', false);
+      return;
+    }
+
+    // Force Google account selection screen every time
+    googleProvider.setCustomParameters({
+      prompt: 'select_account'
+    });
+
+    // Ensure persistent login session
+    auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+      .then(() => {
+        return auth.signInWithPopup(googleProvider);
+      })
+      .then((result) => {
+        const user = result.user;
+        const userData = {
+          uid: user.uid,
+          name: user.displayName || (user.email ? user.email.split('@')[0] : 'User'),
+          email: user.email,
+          photoURL: user.photoURL || '',
+          provider: 'google',
+          signedInAt: new Date().toISOString()
+        };
+
+        setUser(userData);
+        closeSignInModal();
+        updateUI();
+        showToast('Google Sign-In Successful', `Welcome, ${userData.name}!`, true);
+        setTimeout(openProfileModal, 400);
+      })
+      .catch((error) => {
+        console.error('Google Sign-In error:', error);
+        if (error.code === 'auth/popup-closed-by-user') {
+          return; // User closed popup
+        }
+        if (error.code === 'auth/unauthorized-domain') {
+          showToast('Domain Authorization', 'Please add localhost to Firebase Console -> Authentication -> Settings -> Authorized domains.', false);
+          return;
+        }
+        showToast('Sign-In Notice', error.message || 'Google sign-in could not be completed.', false);
+      });
+  }
+
+  // Real Sign Out via Firebase Authentication
+  function handleSignOut() {
+    if (auth) {
+      auth.signOut().then(() => {
+        setUser(null);
+        closeProfileModal();
+        updateUI();
+        showToast('Signed Out', 'You have been signed out successfully.', true);
+      }).catch(() => {
+        setUser(null);
+        closeProfileModal();
+        updateUI();
+      });
+    } else {
+      setUser(null);
+      closeProfileModal();
+      updateUI();
+      showToast('Signed Out', 'You have been signed out successfully.', true);
+    }
+  }
+
+  // Listen to Firebase Real-time Auth State Changes
+  if (auth) {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        const userData = {
+          uid: user.uid,
+          name: user.displayName || (user.email ? user.email.split('@')[0] : 'User'),
+          email: user.email,
+          photoURL: user.photoURL || '',
+          provider: 'google',
+          signedInAt: user.metadata?.lastSignInTime || new Date().toISOString()
+        };
+        setUser(userData);
+      } else {
+        const local = getUser();
+        if (!local) setUser(null);
+      }
+      updateUI();
+    });
+  }
+
+  // Arrow click animation trigger
+  function triggerArrowClickAnimation() {
+    const arrow = getStartedBtn ? getStartedBtn.querySelector('.get-started-arrow') : null;
+    if (arrow) {
+      arrow.classList.remove('arrow-click-motion');
+      void arrow.offsetWidth; // Force reflow
+      arrow.classList.add('arrow-click-motion');
+    }
+  }
+
+  // Event Listeners
+  if (getStartedBtn) {
+    getStartedBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      triggerArrowClickAnimation();
+      const user = getUser();
+      if (user) {
+        openProfileModal();
+      } else {
+        openSignInModal();
+      }
+    });
+  }
+
+  if (profileBtn) {
+    profileBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const user = getUser();
+      if (user) {
+        openProfileModal();
+      } else {
+        openSignInModal();
+      }
+    });
+  }
+
+  if (mobileProfileBtn) {
+    mobileProfileBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const user = getUser();
+      if (user) {
+        openProfileModal();
+      } else {
+        openSignInModal();
+      }
+    });
+  }
+
+  if (googleSigninBtn) {
+    googleSigninBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      handleGoogleSignIn();
+    });
+  }
+
+  if (profileSwitchAccountBtn) {
+    profileSwitchAccountBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeProfileModal();
+      setTimeout(handleGoogleSignIn, 300);
+    });
+  }
+
+  if (profileSignoutBtn) {
+    profileSignoutBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      handleSignOut();
+    });
+  }
+
+  if (profileExploreBtn) {
+    profileExploreBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeProfileModal();
+      const coursesEl = document.getElementById('courses');
+      if (coursesEl) coursesEl.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+
+  // Close buttons and backdrop clicks
+  if (closeSigninModalBtn) closeSigninModalBtn.addEventListener('click', closeSignInModal);
+  if (signinModalBackdrop) signinModalBackdrop.addEventListener('click', closeSignInModal);
+  if (closeProfileModalBtn) closeProfileModalBtn.addEventListener('click', closeProfileModal);
+  if (profileModalBackdrop) profileModalBackdrop.addEventListener('click', closeProfileModal);
+
+  // ==========================================
+  // STUDENT COURSE ENROLLMENT MODAL CONTROLLER
+  // ==========================================
+  const enrollmentModal = document.getElementById('enrollment-modal');
+  const enrollmentModalContent = document.getElementById('enrollment-modal-content');
+  const enrollmentModalBackdrop = document.getElementById('enrollment-modal-backdrop');
+  const closeEnrollmentModalBtn = document.getElementById('close-enrollment-modal-btn');
+  const closeEnrollSuccessBtn = document.getElementById('close-enroll-success-btn');
+
+  const enrollFormContainer = document.getElementById('enroll-form-container');
+  const enrollSuccessContainer = document.getElementById('enroll-success-container');
+  const enrollmentForm = document.getElementById('enrollment-form');
+
+  const enrollNameInput = document.getElementById('enroll-name');
+  const enrollEmailInput = document.getElementById('enroll-email');
+  const enrollWhatsappInput = document.getElementById('enroll-whatsapp');
+  const enrollYearInput = document.getElementById('enroll-year');
+  const enrollDepartmentInput = document.getElementById('enroll-department');
+  const enrollCourseSelect = document.getElementById('enroll-course');
+
+  const enrollNameError = document.getElementById('enroll-name-error');
+  const enrollEmailError = document.getElementById('enroll-email-error');
+  const enrollWhatsappError = document.getElementById('enroll-whatsapp-error');
+  const enrollYearError = document.getElementById('enroll-year-error');
+  const enrollDepartmentError = document.getElementById('enroll-department-error');
+  const enrollCourseError = document.getElementById('enroll-course-error');
+
+  const enrollSubmitBtn = document.getElementById('enroll-submit-btn');
+  const enrollBtnText = document.getElementById('enroll-btn-text');
+  const enrollBtnSpinner = document.getElementById('enroll-btn-spinner');
+
+  // Success view elements
+  const successStudentName = document.getElementById('success-student-name');
+  const successCourseName = document.getElementById('success-course-name');
+  const successEnrollId = document.getElementById('success-enroll-id');
+  const successStudentEmail = document.getElementById('success-student-email');
+  const successStudentWhatsapp = document.getElementById('success-student-whatsapp');
+  const successGmailWebBtn = document.getElementById('success-gmail-web-btn');
+
+  window.openEnrollmentModal = function(courseName) {
+    if (enrollCourseSelect && courseName) {
+      for (let i = 0; i < enrollCourseSelect.options.length; i++) {
+        const optVal = enrollCourseSelect.options[i].value;
+        if (optVal.toLowerCase().includes(courseName.toLowerCase()) || courseName.toLowerCase().includes(optVal.toLowerCase())) {
+          enrollCourseSelect.selectedIndex = i;
+          break;
+        }
+      }
+    }
+
+    // Reset inputs so student enters their own details
+    if (enrollNameInput) enrollNameInput.value = '';
+    if (enrollEmailInput) enrollEmailInput.value = '';
+    if (enrollWhatsappInput) enrollWhatsappInput.value = '';
+    if (enrollDepartmentInput) enrollDepartmentInput.value = '';
+    if (enrollYearInput) enrollYearInput.selectedIndex = 0;
+
+    // Reset views
+    if (enrollFormContainer) enrollFormContainer.classList.remove('hidden');
+    if (enrollSuccessContainer) {
+      enrollSuccessContainer.classList.add('hidden');
+      enrollSuccessContainer.classList.remove('flex');
+    }
+    if (enrollSubmitBtn) enrollSubmitBtn.disabled = false;
+    if (enrollBtnText) enrollBtnText.classList.remove('hidden');
+    if (enrollBtnSpinner) {
+      enrollBtnSpinner.classList.remove('flex');
+      enrollBtnSpinner.classList.add('hidden');
+    }
+
+    // Clear any previous error styling
+    [enrollNameInput, enrollEmailInput, enrollWhatsappInput, enrollYearInput, enrollDepartmentInput, enrollCourseSelect].forEach(input => {
+      if (input) input.classList.remove('border-error', 'ring-1', 'ring-error');
+    });
+    [enrollNameError, enrollEmailError, enrollWhatsappError, enrollYearError, enrollDepartmentError, enrollCourseError].forEach(err => {
+      if (err) err.classList.add('hidden');
+    });
+
+    openModal(enrollmentModal, enrollmentModalContent);
+  };
+
+  window.closeEnrollmentModal = function() {
+    closeModal(enrollmentModal, enrollmentModalContent);
+  };
+
+  if (closeEnrollmentModalBtn) closeEnrollmentModalBtn.addEventListener('click', closeEnrollmentModal);
+  if (closeEnrollSuccessBtn) closeEnrollSuccessBtn.addEventListener('click', closeEnrollmentModal);
+  if (enrollmentModalBackdrop) enrollmentModalBackdrop.addEventListener('click', closeEnrollmentModal);
+
+  // Live input error clearing for enrollment fields
+  if (enrollNameInput && enrollNameError) {
+    enrollNameInput.addEventListener('input', () => {
+      if (enrollNameInput.value.trim().length >= 2) {
+        enrollNameInput.classList.remove('border-error', 'ring-1', 'ring-error');
+        enrollNameError.classList.add('hidden');
+      }
+    });
+  }
+  if (enrollEmailInput && enrollEmailError) {
+    enrollEmailInput.addEventListener('input', () => {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (emailPattern.test(enrollEmailInput.value.trim())) {
+        enrollEmailInput.classList.remove('border-error', 'ring-1', 'ring-error');
+        enrollEmailError.classList.add('hidden');
+      }
+    });
+  }
+  if (enrollWhatsappInput && enrollWhatsappError) {
+    enrollWhatsappInput.addEventListener('input', () => {
+      const cleanDigits = enrollWhatsappInput.value.replace(/\D/g, '');
+      if (cleanDigits.length >= 10) {
+        enrollWhatsappInput.classList.remove('border-error', 'ring-1', 'ring-error');
+        enrollWhatsappError.classList.add('hidden');
+      }
+    });
+  }
+  if (enrollYearInput && enrollYearError) {
+    enrollYearInput.addEventListener('change', () => {
+      if (enrollYearInput.value) {
+        enrollYearInput.classList.remove('border-error', 'ring-1', 'ring-error');
+        enrollYearError.classList.add('hidden');
+      }
+    });
+  }
+  if (enrollDepartmentInput && enrollDepartmentError) {
+    enrollDepartmentInput.addEventListener('input', () => {
+      if (enrollDepartmentInput.value.trim().length >= 2) {
+        enrollDepartmentInput.classList.remove('border-error', 'ring-1', 'ring-error');
+        enrollDepartmentError.classList.add('hidden');
+      }
+    });
+  }
+
+  // =====================================================
+  // EmailJS Configuration (Public keys — safe to expose)
+  // =====================================================
+  const EMAILJS_PUBLIC_KEY  = 'YOUR_EMAILJS_PUBLIC_KEY';   // Replace with your EmailJS Public Key
+  const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';           // Replace with your EmailJS Service ID
+  const EMAILJS_ADMIN_TPL   = 'YOUR_ADMIN_TEMPLATE_ID';   // Template that sends to official.codelytic@gmail.com
+  const EMAILJS_STUDENT_TPL = 'YOUR_STUDENT_TEMPLATE_ID'; // Template that sends to student
+
+  // Initialize EmailJS once
+  if (typeof emailjs !== 'undefined') {
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  }
+
+  // =====================================================
+  // Enrolled Course Tracking (localStorage)
+  // =====================================================
+  const ENROLLED_KEY = 'codelytic_enrolled_courses';
+
+  function getEnrolledCourses() {
+    try {
+      const stored = localStorage.getItem(ENROLLED_KEY);
+      return stored ? JSON.parse(stored) : [];
+    } catch(e) { return []; }
+  }
+
+  function saveEnrolledCourse(courseName, enrollId) {
+    const list = getEnrolledCourses();
+    if (!list.find(c => c.courseName === courseName)) {
+      list.push({ courseName, enrollId, enrolledAt: new Date().toISOString() });
+      localStorage.setItem(ENROLLED_KEY, JSON.stringify(list));
+    }
+    updateCourseEnrolledBadges();
+  }
+
+  function updateCourseEnrolledBadges() {
+    const enrolled = getEnrolledCourses();
+    const enrolledCourseNames = enrolled.map(c => typeof c === 'string' ? c : c.courseName);
+
+    // Map of course name → button id
+    const courseButtonMap = {
+      'Full Stack Development': 'enroll-btn-fullstack',
+      'Artificial Intelligence & Data Science': 'enroll-btn-ai',
+      'Prompt Engineering & Digital Marketing': 'enroll-btn-prompt',
+      'UI/UX Design & Frontend System': 'enroll-btn-uiux'
+    };
+
+    Object.entries(courseButtonMap).forEach(([course, btnId]) => {
+      const btn = document.getElementById(btnId);
+      if (!btn) return;
+      const wrapper = btn.parentElement;
+      if (!wrapper) return;
+
+      const isEnrolled = enrolledCourseNames.some(enrolledName => {
+        if (!enrolledName) return false;
+        const norm1 = enrolledName.toLowerCase().replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
+        const norm2 = course.toLowerCase().replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
+        return norm1 === norm2 || norm1.includes(norm2) || norm2.includes(norm1);
+      });
+
+      if (isEnrolled) {
+        // Replace button with enrolled badge
+        let badge = wrapper.querySelector('.course-enrolled-badge');
+        btn.style.display = 'none';
+        if (!badge) {
+          badge = document.createElement('div');
+          badge.className = 'course-enrolled-badge w-full h-10 rounded-lg bg-emerald-100 text-emerald-800 font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 border border-emerald-300 shadow-sm cursor-default select-none transition-all';
+          badge.innerHTML = '<span class="material-symbols-outlined text-[19px] text-emerald-600 font-bold" style="font-variation-settings: \'FILL\' 1;">check_circle</span><span class="tracking-wide text-sm font-bold text-emerald-800">Enrolled</span>';
+          badge.title = 'You have already enrolled in this course';
+          wrapper.appendChild(badge);
+        }
+      } else {
+        // Show button, remove badge if any
+        btn.style.display = '';
+        const badge = wrapper.querySelector('.course-enrolled-badge');
+        if (badge) badge.remove();
+      }
+    });
+  }
+
+  // Run badge updates on page load
+  document.addEventListener('DOMContentLoaded', updateCourseEnrolledBadges);
+  updateCourseEnrolledBadges();
+
+  // =====================================================
+  // Handle Enrollment Form Submission
+  // =====================================================
+  window.handleEnrollmentSubmit = function(e) {
+    e.preventDefault();
+
+    let isValid = true;
+
+    // 1. Full Name validation
+    const fullName = enrollNameInput.value.trim();
+    if (!fullName || fullName.length < 2) {
+      enrollNameInput.classList.add('border-error', 'ring-1', 'ring-error');
+      enrollNameError.classList.remove('hidden');
+      isValid = false;
+    } else {
+      enrollNameInput.classList.remove('border-error', 'ring-1', 'ring-error');
+      enrollNameError.classList.add('hidden');
+    }
+
+    // 2. Email ID validation
+    const email = enrollEmailInput.value.trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailPattern.test(email)) {
+      enrollEmailInput.classList.add('border-error', 'ring-1', 'ring-error');
+      enrollEmailError.classList.remove('hidden');
+      isValid = false;
+    } else {
+      enrollEmailInput.classList.remove('border-error', 'ring-1', 'ring-error');
+      enrollEmailError.classList.add('hidden');
+    }
+
+    // 3. WhatsApp Number validation (minimum 10 digits)
+    const whatsapp = enrollWhatsappInput.value.trim();
+    const digitsOnly = whatsapp.replace(/\D/g, '');
+    if (!whatsapp || digitsOnly.length < 10) {
+      enrollWhatsappInput.classList.add('border-error', 'ring-1', 'ring-error');
+      enrollWhatsappError.classList.remove('hidden');
+      isValid = false;
+    } else {
+      enrollWhatsappInput.classList.remove('border-error', 'ring-1', 'ring-error');
+      enrollWhatsappError.classList.add('hidden');
+    }
+
+    // 4. Year of Study validation
+    const yearOfStudy = enrollYearInput.value;
+    if (!yearOfStudy) {
+      enrollYearInput.classList.add('border-error', 'ring-1', 'ring-error');
+      enrollYearError.classList.remove('hidden');
+      isValid = false;
+    } else {
+      enrollYearInput.classList.remove('border-error', 'ring-1', 'ring-error');
+      enrollYearError.classList.add('hidden');
+    }
+
+    // 5. Department validation
+    const department = enrollDepartmentInput.value.trim();
+    if (!department || department.length < 2) {
+      enrollDepartmentInput.classList.add('border-error', 'ring-1', 'ring-error');
+      enrollDepartmentError.classList.remove('hidden');
+      isValid = false;
+    } else {
+      enrollDepartmentInput.classList.remove('border-error', 'ring-1', 'ring-error');
+      enrollDepartmentError.classList.add('hidden');
+    }
+
+    // 6. Course Name validation
+    const courseName = enrollCourseSelect.value;
+    if (!courseName) {
+      enrollCourseSelect.classList.add('border-error', 'ring-1', 'ring-error');
+      enrollCourseError.classList.remove('hidden');
+      isValid = false;
+    } else {
+      enrollCourseSelect.classList.remove('border-error', 'ring-1', 'ring-error');
+      enrollCourseError.classList.add('hidden');
+    }
+
+    if (!isValid) return;
+
+    // Loading State
+    enrollSubmitBtn.disabled = true;
+    enrollBtnText.classList.add('hidden');
+    enrollBtnSpinner.classList.remove('hidden');
+    enrollBtnSpinner.classList.add('flex');
+
+    const enrollData = { fullName, email, whatsapp, yearOfStudy, department, courseName };
+    const enrollId = 'CDL-ENR-' + Date.now().toString().slice(-6);
+
+    // -------------------------------------------------------
+    // Step 1: Save to local server (backup record)
+    // -------------------------------------------------------
+    fetch('/api/enroll', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(enrollData)
+    }).catch(function() {/* server offline — continue anyway */});
+
+    // -------------------------------------------------------
+    // Step 2: Send emails via EmailJS (direct — no extra step)
+    // -------------------------------------------------------
+    function sendEmailsAndFinish() {
+      const emailJSReady = (typeof emailjs !== 'undefined') &&
+        EMAILJS_PUBLIC_KEY !== 'YOUR_EMAILJS_PUBLIC_KEY';
+
+      const adminParams = {
+        to_email: 'official.codelytic@gmail.com',
+        student_name: fullName,
+        student_email: email,
+        whatsapp_number: whatsapp,
+        year_of_study: yearOfStudy,
+        department: department,
+        course_name: courseName,
+        enrollment_id: enrollId
+      };
+
+      const studentParams = {
+        to_email: email,
+        to_name: fullName,
+        student_name: fullName,
+        course_name: courseName,
+        enrollment_id: enrollId,
+        year_of_study: yearOfStudy,
+        department: department,
+        whatsapp_number: whatsapp
+      };
+
+      if (emailJSReady) {
+        // Send both emails in parallel via EmailJS
+        const p1 = emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_ADMIN_TPL, adminParams)
+          .catch(function(err) { console.warn('Admin email failed:', err); });
+        const p2 = emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_STUDENT_TPL, studentParams)
+          .catch(function(err) { console.warn('Student email failed:', err); });
+        Promise.all([p1, p2]).then(function() {
+          displayEnrollmentSuccess(enrollData, enrollId);
+        });
+      } else {
+        // Fallback: FormSubmit (dispatches ONLY to official.codelytic@gmail.com)
+        try {
+          fetch('https://formsubmit.co/ajax/official.codelytic@gmail.com', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+              _subject: 'New Student Enrollment - ' + courseName + ' [' + enrollId + ']',
+              student_name: fullName,
+              student_email: email,
+              whatsapp_number: whatsapp,
+              year_of_study: yearOfStudy,
+              department: department,
+              course_name: courseName,
+              enrollment_id: enrollId,
+              _replyto: email
+            })
+          }).catch(function() {});
+          // Student confirmation fallback via FormSubmit
+          fetch('https://formsubmit.co/ajax/' + encodeURIComponent(email), {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+              _subject: 'Enrollment Confirmation - Codelytic: ' + courseName,
+              message: 'Dear ' + fullName + ', You have successfully enrolled in ' + courseName + ' at Codelytic! Enrollment ID: ' + enrollId + '. Our team will contact you on WhatsApp: ' + whatsapp + '. - Codelytic Team',
+              _replyto: 'official.codelytic@gmail.com'
+            })
+          }).catch(function() {});
+        } catch(ex) {}
+        displayEnrollmentSuccess(enrollData, enrollId);
+      }
+    }
+
+    setTimeout(sendEmailsAndFinish, 300);
+
+    // -------------------------------------------------------
+    // Display success screen
+    // -------------------------------------------------------
+    function displayEnrollmentSuccess(data, eid) {
+      const finalId = eid || enrollId;
+
+      if (successStudentName) successStudentName.textContent = data.fullName;
+      if (successCourseName) successCourseName.textContent = data.courseName;
+      if (successEnrollId) successEnrollId.textContent = finalId;
+      if (successStudentEmail) successStudentEmail.textContent = data.email;
+      if (successStudentWhatsapp) successStudentWhatsapp.textContent = data.whatsapp;
+
+      if (enrollFormContainer) enrollFormContainer.classList.add('hidden');
+      if (enrollSuccessContainer) {
+        enrollSuccessContainer.classList.remove('hidden');
+        enrollSuccessContainer.classList.add('flex');
+      }
+
+      // Save enrolled course to localStorage → show green Enrolled badge
+      saveEnrolledCourse(data.courseName, finalId);
+
+      showToast('Enrollment Successful!', 'Welcome to ' + data.courseName, true);
+      enrollmentForm.reset();
+
+      enrollSubmitBtn.disabled = false;
+      enrollBtnText.classList.remove('hidden');
+      enrollBtnSpinner.classList.remove('flex');
+      enrollBtnSpinner.classList.add('hidden');
+    }
+  };
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeSignInModal();
+      closeGoogleAccountChooser();
+      closeProfileModal();
+      closeEnrollmentModal();
+    }
+  });
+
+  // Initialize UI on load
+  document.addEventListener('DOMContentLoaded', () => {
+    updateUI();
+  });
+  updateUI();
+})();
+</script>
+</body></html>
