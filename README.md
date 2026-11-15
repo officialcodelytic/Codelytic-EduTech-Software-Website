@@ -115,6 +115,7 @@ To use your own Firebase project for authentication:
 2. Enable **Authentication** $\rightarrow$ **Sign-in method** $\rightarrow$ **Google** $\rightarrow$ Click **Enable** and configure your support email.
 3. Under **Authentication** $\rightarrow$ **Settings** $\rightarrow$ **Authorized domains**, add:
    - `localhost`
+   - `officialcodelytic.github.io`
    - `official-codelytic.github.io`
 4. Copy your web app config and update `firebaseConfig` in `index.html`:
 ```javascript
