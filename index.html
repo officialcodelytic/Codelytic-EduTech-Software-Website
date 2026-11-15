@@ -1387,8 +1387,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       if (firebase.auth) {
         auth = firebase.auth();
+        auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch(function(e) {
+          console.warn('Persistence notice:', e);
+        });
         googleProvider = new firebase.auth.GoogleAuthProvider();
-        // Force account selection screen every time user clicks
         googleProvider.setCustomParameters({
           prompt: 'select_account'
         });
@@ -1628,6 +1630,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Real Google Sign-in via Firebase Authentication
   function handleGoogleSignIn() {
+    // Check if running from file://
+    if (window.location.protocol === 'file:') {
+      alert("Google Sign-In requires running through a local web server (http://localhost:3000), not opened directly as a file (file://).\n\nPlease open: http://localhost:3000/code.html in your browser.");
+      showToast('Web Server Required', 'Please open via http://localhost:3000', false);
+      return;
+    }
+
     if (!auth || !googleProvider) {
       showToast('Firebase Notice', 'Firebase Auth SDK is initializing. Please check connection.', false);
       return;
@@ -1638,11 +1647,8 @@ document.addEventListener('DOMContentLoaded', () => {
       prompt: 'select_account'
     });
 
-    // Ensure persistent login session
-    auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-      .then(() => {
-        return auth.signInWithPopup(googleProvider);
-      })
+    // Call signInWithPopup SYNCHRONOUSLY to prevent browser popup blockers!
+    auth.signInWithPopup(googleProvider)
       .then((result) => {
         const user = result.user;
         const userData = {
@@ -1657,23 +1663,54 @@ document.addEventListener('DOMContentLoaded', () => {
         setUser(userData);
         closeSignInModal();
         updateUI();
-        showToast('Google Sign-In Successful', `Welcome, ${userData.name}!`, true);
+        showToast('Google Sign-In Successful', 'Welcome, ' + userData.name + '!', true);
         setTimeout(openProfileModal, 400);
       })
       .catch((error) => {
         console.error('Google Sign-In error:', error);
         if (error.code === 'auth/popup-closed-by-user') {
-          return; // User closed popup
-        }
-        if (error.code === 'auth/unauthorized-domain') {
-          showToast('Domain Authorization', 'Please add localhost to Firebase Console -> Authentication -> Settings -> Authorized domains.', false);
           return;
         }
-        showToast('Sign-In Notice', error.message || 'Google sign-in could not be completed.', false);
+        if (error.code === 'auth/popup-blocked') {
+          showToast('Popup Blocked', 'Please allow popups for this site in your browser URL bar, or try again.', false);
+          // Fallback to redirect if popup is blocked
+          try {
+            auth.signInWithRedirect(googleProvider);
+          } catch(e) {}
+          return;
+        }
+        if (error.code === 'auth/unauthorized-domain') {
+          const host = window.location.hostname;
+          showToast('Domain Not Authorized', 'Please add "' + host + '" to Firebase Console -> Authentication -> Settings -> Authorized domains.', false);
+          alert('Domain "' + host + '" is not authorized in Firebase!\n\nTo fix:\n1. Go to Firebase Console -> Authentication -> Settings -> Authorized domains\n2. Add: ' + host);
+          return;
+        }
+        showToast('Sign-In Notice', (error.code ? '[' + error.code + '] ' : '') + (error.message || 'Could not complete sign-in.'), false);
       });
   }
 
-  // Real Sign Out via Firebase Authentication
+  // Check for redirect result on page load (in case signInWithRedirect was used)
+  if (auth) {
+    auth.getRedirectResult().then((result) => {
+      if (result && result.user) {
+        const user = result.user;
+        const userData = {
+          uid: user.uid,
+          name: user.displayName || (user.email ? user.email.split('@')[0] : 'User'),
+          email: user.email,
+          photoURL: user.photoURL || '',
+          provider: 'google',
+          signedInAt: new Date().toISOString()
+        };
+        setUser(userData);
+        updateUI();
+        showToast('Google Sign-In Successful', 'Welcome, ' + userData.name + '!', true);
+      }
+    }).catch(function(err) {
+      console.warn('Redirect result notice:', err);
+    });
+  }
+
   function handleSignOut() {
     if (auth) {
       auth.signOut().then(() => {
