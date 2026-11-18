@@ -2245,33 +2245,53 @@ document.addEventListener('DOMContentLoaded', () => {
           displayEnrollmentSuccess(enrollData, enrollId);
         });
       } else {
-        // Fallback: FormSubmit (dispatches ONLY to official.codelytic@gmail.com)
+        // FormSubmit with automatic student confirmation delivery
+        const studentConfirmMessage =
+          'Dear ' + fullName + ',\n\n' +
+          '🎉 Congratulations! Your seat in ' + courseName + ' at Codelytic EduTech Software has been successfully reserved!\n\n' +
+          '====================================\n' +
+          'ENROLLMENT CONFIRMATION DETAILS\n' +
+          '====================================\n' +
+          '• Enrollment ID: ' + enrollId + '\n' +
+          '• Student Name: ' + fullName + '\n' +
+          '• Registered Email: ' + email + '\n' +
+          '• Registered WhatsApp: ' + whatsapp + '\n' +
+          '• Enrolled Program: ' + courseName + '\n' +
+          '• Department: ' + department + '\n' +
+          '• Year of Study: ' + yearOfStudy + '\n\n' +
+          '====================================\n' +
+          'WHAT TO EXPECT NEXT:\n' +
+          '====================================\n' +
+          '1. Mentorship Onboarding: Our admissions team will reach out via WhatsApp (' + whatsapp + ') within 24 hours.\n' +
+          '2. Curriculum Access: You will receive your complete learning module syllabus and batch schedule.\n' +
+          '3. 1-on-1 Guidance: Your dedicated mentor will be assigned for personalized doubts and capstone project support.\n\n' +
+          'If you have any questions, you can reply directly to this email or reach us at official.codelytic@gmail.com.\n\n' +
+          'Welcome to Codelytic — Innovating Education!\n\n' +
+          'Warm regards,\n' +
+          'Admissions & Mentoring Team\n' +
+          'Codelytic EduTech Software\n' +
+          'https://officialcodelytic.github.io/Codelytic-EduTech-Software-Website/';
+
         try {
           fetch('https://formsubmit.co/ajax/official.codelytic@gmail.com', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify({
               _subject: 'New Student Enrollment - ' + courseName + ' [' + enrollId + ']',
-              student_name: fullName,
-              student_email: email,
-              whatsapp_number: whatsapp,
-              year_of_study: yearOfStudy,
-              department: department,
-              course_name: courseName,
-              enrollment_id: enrollId,
-              _replyto: email
+              name: fullName,
+              email: email,
+              _replyto: email,
+              _autoresponse: studentConfirmMessage,
+              _template: 'table',
+              'Enrollment ID': enrollId,
+              'Student Name': fullName,
+              'Student Email': email,
+              'WhatsApp Number': whatsapp,
+              'Course Enrolled': courseName,
+              'Department': department,
+              'Year of Study': yearOfStudy
             })
-          }).catch(function() {});
-          // Student confirmation fallback via FormSubmit
-          fetch('https://formsubmit.co/ajax/' + encodeURIComponent(email), {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify({
-              _subject: 'Enrollment Confirmation - Codelytic: ' + courseName,
-              message: 'Dear ' + fullName + ', You have successfully enrolled in ' + courseName + ' at Codelytic! Enrollment ID: ' + enrollId + '. Our team will contact you on WhatsApp: ' + whatsapp + '. - Codelytic Team',
-              _replyto: 'official.codelytic@gmail.com'
-            })
-          }).catch(function() {});
+          }).catch(function(err) { console.warn('Enrollment dispatch error:', err); });
         } catch(ex) {}
         displayEnrollmentSuccess(enrollData, enrollId);
       }
